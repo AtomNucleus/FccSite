@@ -29,14 +29,16 @@ header nav{display:flex;align-items:center;gap:1.6rem;font-weight:600}
 header nav a{text-decoration:none}
 .pill{padding:.55em 1.2em;border-radius:99px;background:var(--fg,var(--ink));color:var(--bgc,var(--paper))}
 .logo{--lc:var(--fg,#0A0A0A);--lg:var(--bgc,#F3EDE0);display:block;width:clamp(48px,5vw,66px);aspect-ratio:1}
-#world{display:flow-root;height:248vh;margin-bottom:-8vh;position:relative;background:#0A0A0A}
+#world{display:flow-root;height:248vh;margin-bottom:-8vh;position:relative;background:#3B312C}
 /* Safari 26 paints a solid strip behind its status bar and toolbar when a fixed/sticky box about the viewport's size touches those edges.
    The transparent border makes the box >105% of the viewport so Safari skips it; children position against the padding box, so the scene is unchanged. */
 .stage{--hs:100vh;--sk:calc(var(--hs)*.473);--bl:8vh;/* keep in step with #world */position:sticky;top:calc(-1*var(--bl));height:var(--hs);box-sizing:content-box;border-block:var(--bl) solid transparent;margin-block:calc(-1*var(--bl));overflow:hidden;background:#1E1612}
 @supports(height:100lvh){.stage{--hs:100lvh}
 /* iOS 26 Safari cuts the pinned stage off at the top of its toolbar and shows the scrolling page below that line.
-   So the skyline sits on that line (100svh), its street runs to the stage bottom, and #world under the toolbar is the same street. */
-.stage .sk{bottom:calc(var(--hs) - 100svh)}.stage::after{content:"";position:absolute;inset:auto 0 0;z-index:2;height:calc(var(--hs) - 100svh + 1px);background:#0A0A0A}}
+   So the road sits just above that line (100svh) and runs to the stage bottom, and #world under the toolbar is the same asphalt.
+   The lane line lives in the pinned part, so it holds still; only plain asphalt continues under the toolbar. */
+.stage{--rd:calc(var(--sk)*.17)}.stage .sk{bottom:calc(var(--hs) - 100svh + var(--rd))}
+.stage::after{content:"";position:absolute;inset:auto 0 0;z-index:2;height:calc(var(--hs) - 100svh + var(--rd) + 1px);border-top:3px solid #0A0A0A;background:repeating-linear-gradient(90deg,#EDE4D1 0 28px,transparent 28px 56px) 14px calc(var(--rd)*.48 - 2px)/100% 4px repeat-x,var(--asp,#3B312C)}}
 .sky{position:absolute;inset:0;background:#1E1612}.sky i{position:absolute;inset:0;background:#1E1612}.sky .b{opacity:0;will-change:opacity}
 .sky::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(255,255,255,.22))}
 .orb{position:absolute;left:0;top:0;width:15vmin;height:15vmin;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);background:#F2B63D;will-change:transform,opacity}.moon{width:10vmin;height:10vmin;background:#EFEAD9}
@@ -301,6 +303,8 @@ Dr+=`<path d="${arch(cx,58,76)}" />`;DG=`<path class="dg" d="${arch(cx,46,68)}" 
 ten(10,160,270,'#B65A41');bod(180,120,120,'#EDE4D1','#C8644A');coop(310,240,330,'#D9AE86');ten(560,150,250,'#C98F5B');
 church(720,200,290,'#A8482F');deco(930,170,400,'#EDE4D1');coop(1110,230,310,'#B65A41');bod(1350,110,130,'#D9AE86','#6E7A3B');ten(1470,125,240,'#C98F5B');
 [555,1105,1465].forEach(tree);
+/* sidewalk: concrete slabs between the buildings and the curb */
+base.unshift(c=>R4(0,G,1600,40,` fill="${c('#B3A48F')}"`));O+=`<path d="M0 ${G}H1600" />`;{let j='';for(let x=25;x<1600;x+=50)j+=`M${x} ${G+3}V${G+40}`;ext.push(c=>`<path d="${j}" stroke="${c('#8E7F6B')}" stroke-width="2.5" />`)}
 
 const fills=n=>{const c=h=>n?mx(h,'#2A1B15',.74):h,wc=n?WN:WD;return base.map(f=>f(c)).join('')+Wn.map(w=>w.s(wc)).join('')+ext.map(f=>f(c)).join('')};
 const TH=[0,.2,.4,.45,.5,.55];
@@ -323,12 +327,18 @@ const train=`<g id="tr" transform="translate(-2000 0)">${tb}<g id="tno">${to}</g
 /* neighbors walking to church on Sunday morning: [start x, end x at the doors, scale] */
 const PP=[[300,742,1],[430,780,1],[478,800,.7],[520,838,1],[610,762,1],[1020,856,1],[1062,876,.7],[1170,890,1],[1250,818,1]];
 const person=`<circle cy="-40" r="6.5" /><path d="M-7.5 -14v-13a7.5 7.5 0 0 1 15 0v13z" /><path d="M-4 -15l-2.5 15M4 -15l2.5 15" stroke="${T}" stroke-width="4.5" stroke-linecap="round" fill="none" />`;
+/* wooden utility poles on the curb: crossarm, two sagging wires to the next pole, a streetlight arm; one either side of the church so a phone sees a full span */
+const PX=[150,620,1065,1290];let po='',pw='';
+PX.forEach((x,i)=>{const nx=i<PX.length-1?PX[i+1]:PX[0]+1600;[-30,30].forEach(o=>pw+=`M${x+o} 262Q${(x+nx)/2+o} ${300+(nx-x)*.04} ${nx+o} 262`);
+po+=`<g stroke="${T}" stroke-width="3" fill="#6B4A35"><rect x="${x-5}" y="246" width="10" height="352" /><rect x="${x-40}" y="264" width="80" height="8" /><path d="M${x} 330q34-24 66-8" fill="none" stroke-width="4" /></g>`+
+`<g fill="${T}">${R4(x-33,253,6,11)}${R4(x+27,253,6,11)}</g><path d="M${x+52} 322h30l-6 9h-18z" fill="${WL}" stroke="${T}" stroke-width="3" stroke-linejoin="round" />`});
+const poles=`<path d="${pw}" fill="none" stroke="${T}" stroke-width="2" />${po}`;
 const people=`<g id="pp" fill="${T}" opacity="0">${PP.map(()=>`<g>${person}</g>`).join('')}</g>`;
 
 st.insertAdjacentHTML('beforeend',
  sv('sk',rp('cD',fills(0)))+sv('sk n',rp('cN',fills(1)))+
  sv('sk lit',`<defs><radialGradient id="hg"><stop offset="0" stop-color="#F7C95B" stop-opacity=".5" /><stop offset="1" stop-color="#F7C95B" stop-opacity="0" /></radialGradient></defs>${tiles(lit)}`)+
- sv('sk',`<rect x="-1700" y="${G}" width="5000" height="40" fill="${T}" /><g fill="${T}">${rp('cK',Dr)}</g>${tiles(DG)}<g fill="none" stroke="${T}" stroke-width="3.5" stroke-linejoin="round">${rp('cO',O)}</g>${rp('cE',el)}${train}${people}`));
+ sv('sk',`<g fill="${T}">${rp('cK',Dr)}</g>${tiles(DG)}<g fill="none" stroke="${T}" stroke-width="3.5" stroke-linejoin="round">${rp('cO',O)}</g>${rp('cE',el)}${train}${people}${rp('cP',poles)}`));
 let sh='';for(let i=0;i<46;i++){const s=(2+rnd()*4).toFixed(1);sh+=`<s style="left:${(rnd()*100).toFixed(1)}%;top:${(rnd()*100).toFixed(1)}%;width:${s}px;height:${s}px;opacity:${(.4+rnd()*.6).toFixed(2)}"></s>`}STARS.innerHTML=sh;
 
 /* ---------- scroll: night to Sunday sunrise ---------- */
@@ -338,20 +348,21 @@ LG=[...st.querySelectorAll('.lg')].map(g=>[g,+g.dataset.t,-1]),DGs=[...st.queryS
 const S=[[0,[30,22,18]],[.34,[46,30,24]],[.54,[86,46,34]],[.66,[156,80,50]],[.77,[228,150,96]],[.89,[241,223,183]],[1,[243,237,224]]];
 const ss=(a,b,x)=>{x=Math.min(1,Math.max(0,(x-a)/(b-a)));return x*x*(3-2*x)};
 const TA=matchMedia('(prefers-reduced-motion:reduce),(pointer:coarse)').matches?0:.09;
-let RF=.81,P=0,Tg=0,run=0,cn=-1,dk=-1,hs=-1,last=-1,lt=0,H=1,Rg=1,Wt=0,Rt=0,vw=1,SK=1,MS=1,SS=1,dO=-1;
+let RF=.81,P=0,Tg=0,run=0,cn=-1,dk=-1,hs=-1,last=-1,lt=0,H=1,Rg=1,Wt=0,Rt=0,vw=1,SK=1,MS=1,SS=1,dO=-1,Y0=1,asp='';
 function draw(p){
 let i=1;while(i<S.length-1&&p>S[i][0])i++;
 const [p0,c0]=S[i-1],[p1,c1]=S[i],u=(p-p0)/(p1-p0),night=1-ss(.64,.9,p);
 if(i!==last){SA.style.backgroundColor='rgb('+c0+')';SB.style.backgroundColor='rgb('+c1+')';last=i}
 SB.style.opacity=u.toFixed(3);
 N.style.opacity=night.toFixed(3);LIT.style.opacity=(1-ss(.72,.9,p)).toFixed(3);STARS.style.opacity=(1-ss(.48,.7,p)).toFixed(3);
-const roof=H-SK*RF,m=Math.min(1,p/.66);
+const roof=Y0-SK*RF,m=Math.min(1,p/.66);
 MO.style.opacity=(1-ss(.58,.66,p)).toFixed(3);
 MO.style.transform=`translate3d(${((84-50*m)*vw/100-MS/2).toFixed(1)}px,${(roof-MS*1.3+(SK*.5+MS)*m*m).toFixed(1)}px,0)`;
 const v=ss(.62,1,p);
-SU.style.transform=`translate3d(${((74+6*v)*vw/100-SS/2).toFixed(1)}px,${(H-SK*.3+(roof-SS*1.15-(H-SK*.3))*v).toFixed(1)}px,0)`;
+SU.style.transform=`translate3d(${((74+6*v)*vw/100-SS/2).toFixed(1)}px,${(Y0-SK*.3+(roof-SS*1.15-(Y0-SK*.3))*v).toFixed(1)}px,0)`;
 const k=Math.min(1,Math.max(0,(p-.34)/.34));TR.setAttribute('transform',`translate(${(-2000+5600*k).toFixed(0)} 0)`);
-TNO.style.opacity=(night*.55).toFixed(3);TLW.style.opacity=night.toFixed(3);
+TNO.style.opacity=(night*.55).toFixed(3);
+const a=mx('#5E5048','#2B231F',night);if(a!==asp){asp=a;st.style.setProperty('--asp',a);W.style.backgroundColor=a}TLW.style.opacity=night.toFixed(3);
 PPg.style.opacity=ss(.6,.67,p).toFixed(3);const w=ss(.62,.95,p);
 PE.forEach((e,j)=>{const[a,b,s]=PP[j],x=a+(b-a)*w;e.setAttribute('transform',`translate(${x.toFixed(1)} ${(G-Math.abs(Math.sin(x*.11))*2.5).toFixed(1)}) scale(${s})`)});
 LG.forEach(g=>{const on=p>=g[1]?1:0;if(on!==g[2]){g[2]=on;g[0].classList.toggle('on',!!on)}});
@@ -367,7 +378,7 @@ hd.classList.toggle('nw',n===C.length-1&&h!==2)}
 function tick(t){const e=Tg-P,dt=Math.max(0,Math.min(.05,(t-lt)/1e3));lt=t;P=!TA||Math.abs(e)<5e-4?Tg:P+e*(1-Math.exp(-dt/TA));draw(P);run=P!==Tg;if(run)requestAnimationFrame(tick)}
 function aim(){Tg=Math.min(1,Math.max(0,(scrollY-Wt)/Rg));if(!run){run=1;lt=performance.now();requestAnimationFrame(tick)}}
 function fit(){
-const lim=H-SK*RF-14;
+const lim=Y0-SK*RF-14;
 C.forEach(c=>{
 const hh=c.querySelector('h1,h2'),ok=()=>{let b=0;for(const e of c.children)b=Math.max(b,e.offsetTop+e.offsetHeight);return b<=lim&&hh.scrollWidth<=hh.clientWidth+1};
 let lo=.3,hi=1;c.style.setProperty('--k',1);
@@ -378,7 +389,7 @@ const SVG=[...st.querySelectorAll('svg.sk')];
 function measure(force){const h=st.offsetHeight,w=innerWidth;if(!force&&h===H&&w===vw)return;
 /* phones: crop the empty sky out of the viewBox so the skyline draws bigger and fewer buildings fit across */
 const mob=w<640;st.classList.toggle('mob',mob);SVG.forEach(e=>e.setAttribute('viewBox',mob?'0 100 1600 500':'0 0 1600 600'));RF=mob?.96:.81;
-H=h;vw=w;SK=SKe.getBoundingClientRect().height;MS=MO.offsetWidth;SS=SU.offsetWidth;Rg=W.offsetHeight-st.clientTop-H;Wt=W.offsetTop;Rt=document.getElementById('family').offsetTop;fit();aim();draw(P)}
+H=h;vw=w;const sr=SKe.getBoundingClientRect();SK=sr.height;Y0=sr.bottom-st.getBoundingClientRect().top-st.clientTop;MS=MO.offsetWidth;SS=SU.offsetWidth;Rg=W.offsetHeight-st.clientTop-H;Wt=W.offsetTop;Rt=document.getElementById('family').offsetTop;fit();aim();draw(P)}
 /* header: solid bar over the content sections, tucks away on scroll down, returns on scroll up */
 let ly=scrollY;
 addEventListener('scroll',()=>{aim();const y=scrollY,inR=y+40>Rt;
