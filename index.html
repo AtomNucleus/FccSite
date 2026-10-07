@@ -29,11 +29,14 @@ header nav{display:flex;align-items:center;gap:1.6rem;font-weight:600}
 header nav a{text-decoration:none}
 .pill{padding:.55em 1.2em;border-radius:99px;background:var(--fg,var(--ink));color:var(--bgc,var(--paper))}
 .logo{--lc:var(--fg,#0A0A0A);--lg:var(--bgc,#F3EDE0);display:block;width:clamp(48px,5vw,66px);aspect-ratio:1}
-#world{display:flow-root;height:248vh;margin-bottom:-8vh;position:relative}
+#world{display:flow-root;height:248vh;margin-bottom:-8vh;position:relative;background:#0A0A0A}
 /* Safari 26 paints a solid strip behind its status bar and toolbar when a fixed/sticky box about the viewport's size touches those edges.
    The transparent border makes the box >105% of the viewport so Safari skips it; children position against the padding box, so the scene is unchanged. */
 .stage{--hs:100vh;--sk:calc(var(--hs)*.473);--bl:8vh;/* keep in step with #world */position:sticky;top:calc(-1*var(--bl));height:var(--hs);box-sizing:content-box;border-block:var(--bl) solid transparent;margin-block:calc(-1*var(--bl));overflow:hidden;background:#1E1612}
-@supports(height:100lvh){.stage{--hs:100lvh}}
+@supports(height:100lvh){.stage{--hs:100lvh}
+/* iOS 26 Safari cuts the pinned stage off at the top of its toolbar and shows the scrolling page below that line.
+   So the skyline sits on that line (100svh), its street runs to the stage bottom, and #world under the toolbar is the same street. */
+.stage .sk{bottom:calc(var(--hs) - 100svh)}.stage::after{content:"";position:absolute;inset:auto 0 0;z-index:2;height:calc(var(--hs) - 100svh + 1px);background:#0A0A0A}}
 .sky{position:absolute;inset:0;background:#1E1612}.sky i{position:absolute;inset:0;background:#1E1612}.sky .b{opacity:0;will-change:opacity}
 .sky::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(255,255,255,.22))}
 .orb{position:absolute;left:0;top:0;width:15vmin;height:15vmin;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);background:#F2B63D;will-change:transform,opacity}.moon{width:10vmin;height:10vmin;background:#EFEAD9}
