@@ -20,10 +20,10 @@ h1,h2,h3,p,ul{margin:0;padding:0}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .D{font:400 1em/.9 Anton,Impact,"Arial Narrow",sans-serif;text-transform:uppercase}
-header{position:fixed;inset:0 0 auto;z-index:50;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;padding:calc(env(safe-area-inset-top,0px) + 16px) 5vw 12px;--fg:#0A0A0A;--bgc:#F3EDE0;color:var(--fg);transition:color .4s,background-color .3s,box-shadow .3s,transform .35s;pointer-events:none}
+header{position:fixed;inset:env(safe-area-inset-top,0px) 0 auto;z-index:50;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;padding:16px 5vw 12px;--fg:#0A0A0A;--bgc:#F3EDE0;color:var(--fg);transition:color .4s,background-color .3s,box-shadow .3s,transform .35s;pointer-events:none}
 header.dk{--fg:#F3EDE0;--bgc:#1E1612}
 header.rs{--fg:var(--rf);--bgc:var(--rb);background:color-mix(in srgb,var(--rb) 94%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 1px 0 color-mix(in srgb,var(--rf) 18%,transparent)}
-header.hid{transform:translateY(-100%)}
+header.hid{transform:translateY(calc(-100% - env(safe-area-inset-top,0px)))}
 header>*{pointer-events:auto}
 header nav{display:flex;align-items:center;gap:1.6rem;font-weight:600}
 header nav a{text-decoration:none}
