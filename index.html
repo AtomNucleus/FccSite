@@ -127,6 +127,12 @@ header nav button:hover{opacity:1}
 .mos .w{grid-column:span 2}
 @media(max-width:640px){.mos{grid-template-columns:repeat(2,1fr);grid-auto-rows:46vw}.mos figure:last-child{display:none}}
 @media(hover:hover){.mos img{transition:transform .6s}.mos figure:hover img{transform:scale(1.03)}}
+/* phones: bottom bar with times + Visit us while the header is tucked away over the photos */
+.bar{display:none}
+@media(max-width:639px){.bar{position:fixed;inset:auto 0 0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));--fg:var(--rf);--bgc:var(--rb);color:var(--rf);background:color-mix(in srgb,var(--rb) 94%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 -1px 0 color-mix(in srgb,var(--rf) 18%,transparent);font:600 .72rem/1.35 Archivo,sans-serif;letter-spacing:.08em;text-transform:uppercase;transform:translateY(110%);visibility:hidden;transition:transform .35s,visibility 0s .35s}
+.bar.on{transform:none;visibility:visible;transition:transform .35s}
+.bar .pill{font-size:1rem;letter-spacing:0;text-transform:none;text-decoration:none;white-space:nowrap}
+.pan figcaption{padding-bottom:calc(7vh + 64px)}}
 </style>
 <noscript><style>#world{height:auto}.stage{position:static;height:auto;overflow:visible}.ch{position:static;visibility:visible;padding:12vh 6vw 0}.f{opacity:1;transform:none}.orb{display:none}</style></noscript>
 </head>
@@ -137,6 +143,7 @@ header nav button:hover{opacity:1}
 <nav><a href="https://www.fccbronx.org/sermon" data-es="Sermones">Sermons</a><a href="https://tithe.ly/give?c=477320" data-es="Dar">Give</a><button id="lang" type="button" aria-label="Español / English">ES</button><a class="pill" href="#visit" data-es="Visítanos">Visit us</a></nav>
 <a class="when" href="https://www.google.com/maps/search/?api=1&amp;query=2439+Creston+Avenue+Bronx+NY+10468" data-es="Domingos 9:45 en español · 11:45 en inglés&lt;span class=&quot;dm&quot;&gt; · 2439 Creston Ave&lt;/span&gt;">Sundays 9:45 Spanish · 11:45 English<span class="dm"> · 2439 Creston Ave</span></a>
 </header>
+<div class="bar" id="bar" inert><span data-es="Domingos<br>9:45 español · 11:45 inglés">Sundays<br>9:45 Spanish · 11:45 English</span><a class="pill" href="#visit" data-es="Visítanos">Visit us</a></div>
 
 <section id="world"><div class="stage dk">
 <div class="sky"><i class="a"></i><i class="b"></i><div class="stars"></div></div><div class="orb moon"></div><div class="orb sun"></div>
@@ -364,7 +371,9 @@ H=h;vw=w;SK=SKe.getBoundingClientRect().height;MS=MO.offsetWidth;SS=SU.offsetWid
 /* header: solid bar over the content sections, tucks away on scroll down, returns on scroll up */
 let ly=scrollY;
 addEventListener('scroll',()=>{aim();const y=scrollY,inR=y+40>Rt;
-if(!inR||y<ly-4)hd.classList.remove('hid');else if(y>ly+4&&!hd.contains(document.activeElement))hd.classList.add('hid');ly=y},{passive:true});
+if(!inR||y<ly-4)hd.classList.remove('hid');else if(y>ly+4&&!hd.contains(document.activeElement))hd.classList.add('hid');ly=y;bar()},{passive:true});
+/* phone bar takes the header's place while it's tucked away, until Visit comes into view */
+const BAR=document.getElementById('bar'),bar=()=>{const on=hd.classList.contains('hid')&&rest.getBoundingClientRect().top>innerHeight;if(on!==!BAR.inert){BAR.inert=!on;BAR.classList.toggle('on',on)}};
 addEventListener('resize',()=>measure());addEventListener('load',()=>measure(1));document.fonts&&document.fonts.ready.then(()=>measure(1));
 const sp=(e,t)=>{let n=0;e.setAttribute('aria-label',t);e.innerHTML=t.split(' ').map(w=>`<span aria-hidden="true" style="display:inline-block;white-space:nowrap">${[...w].map(c=>`<span class="l" style="--i:${n++}">${c}</span>`).join('')}</span>`).join(' ');e.style.setProperty('--st',Math.min(22,240/n)+'ms')};
 const I=[...document.querySelectorAll('[data-es]')],LB=document.getElementById('lang'),EL=document.getElementById('ev'),EH=document.getElementById('evh'),EQ=document.getElementById('evq'),t0=new Date(new Date().setHours(0,0,0,0)),dd=x=>new Date(x+'T00:00'),
