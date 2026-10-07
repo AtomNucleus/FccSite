@@ -41,16 +41,17 @@ header nav a{text-decoration:none}
 .lg{opacity:0;transition:opacity .45s}.lg.on{opacity:1}.dg{transition:opacity .8s}
 .sk{position:absolute;left:50%;bottom:0;width:max(100%,calc(var(--sk)*2.667));height:var(--sk);transform:translateX(-50%);z-index:2;pointer-events:none;will-change:transform}
 .n{opacity:0;will-change:transform,opacity}
-.ch{position:absolute;inset:0;z-index:1;padding:clamp(84px,calc(var(--hs)*.14),150px) 6vw 0;color:#0A0A0A;visibility:hidden;transition:visibility 0s .6s,color .5s}
+.ch{position:absolute;inset:0;z-index:1;padding:clamp(84px,calc(var(--hs)*.14),150px) 6vw 0;color:#0A0A0A;visibility:hidden;transition:visibility 0s .45s,color .5s}
 .dk .ch{color:#F3EDE0}
 .ch.on{visibility:visible;transition-delay:0s}
 .ch h1,.ch h2{overflow:hidden;padding:.06em 0}
 .ch h1{font-size:calc(clamp(3.4rem,10.4vw,10.5rem)*var(--k,1))}
 .ch h2{font-size:calc(min(33vw,calc(var(--hs)*.46),22rem)*var(--k,1))}
-.l{display:inline-block;transform:translateY(112%);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
-.on .l{transform:none;transition-delay:calc(var(--i)*var(--st,45ms))}
+/* the h1 clips as a whole, not per line, so letters also fade: otherwise line 1 slides down over line 2 and lingers */
+.l{display:inline-block;transform:translateY(112%);opacity:0;transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .25s}
+.on .l{transform:none;opacity:1;transition-delay:calc(.18s + var(--i)*var(--st,45ms))}
 .f{opacity:0;transform:translateY(14px);transition:opacity .3s,transform .3s}
-.on .f{opacity:1;transform:none;transition:opacity .45s .25s,transform .45s .25s}
+.on .f{opacity:1;transform:none;transition:opacity .45s .4s,transform .45s .4s}
 .es{display:block;margin-top:.9rem;font:600 clamp(.9rem,1.5vw,1.15rem) Archivo,sans-serif;letter-spacing:.4em;text-transform:uppercase}
 .ch p{max-width:32ch;margin-top:1rem;font-size:clamp(.95rem,calc(var(--hs)*.022),1.3rem)}
 .hint{display:flex;gap:.8rem;align-items:center;margin-top:1.4rem;font-weight:600}
@@ -99,14 +100,15 @@ footer .logo{--lc:#F3EDE0;--lg:#0A0A0A;width:64px}
 .fnav a:hover{text-decoration:underline;text-underline-offset:.25em}
 .fnav svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .fbase{display:block;max-width:1200px;margin:var(--s3) auto 0;padding-top:var(--s2);border-top:1px solid #2a2a2a;font-size:.875rem;opacity:.7}
-.when{order:3;flex:0 0 100%;margin-top:.55rem;font:600 .72rem/1.2 Archivo,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none}
+.when{order:3;flex:0 0 100%;margin-top:.55rem;transition:opacity .3s,visibility 0s;font:600 .72rem/1.2 Archivo,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none}
+header.nw .when{opacity:0;visibility:hidden;transition:opacity .3s,visibility 0s .3s}
 header nav button{font:inherit;font-size:.85em;letter-spacing:.08em;color:inherit;background:none;border:0;padding:.3em .2em;cursor:pointer;opacity:.75;text-decoration:underline;text-underline-offset:.3em;text-decoration-thickness:1px}
 header nav button:hover{opacity:1}
 @media(min-width:1024px){header nav{font-size:1.08rem;gap:2rem}.when{font-size:.8rem}}
 .ch p,.es{text-shadow:0 0 .7em var(--ha,transparent)}.ch{--ha:#F3EDE0aa}.dk .ch{--ha:#1E1612aa}
 @media(pointer:coarse){body::after{display:none}}
 @media(max-width:560px){header nav a:not(.pill):not([href*=tithe]),.dm{display:none}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.l{transform:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.l{transform:none;opacity:1}}
 
 /* the body: full-bleed people panels, then a mosaic of faces; plain scrolling, no scroll effects */
 .body{position:relative;z-index:3;background:#1E1612;color:#F3EDE0}
@@ -351,8 +353,11 @@ const d=p>=.86?1:0;if(d!==dO){dO=d;DGs.forEach(e=>e.style.opacity=d)}
 const nt=p<.71?1:0,h=scrollY+40>Rt?2:nt;
 if(nt!==dk){dk=nt;st.classList.toggle('dk',!!nt)}
 if(h!==hs){hs=h;hd.classList.toggle('dk',h==1);hd.classList.toggle('rs',h==2)}
-const n=Math.min(C.length-1,Math.floor(p*C.length));
-if(n!==cn){C.forEach((c,k)=>c.classList.toggle('on',k===n));cn=n}}
+/* hysteresis: a chapter changes only once you're clearly past the midpoint, so resting near it can't flip-flop */
+const x=p*C.length;let n=cn<0?Math.min(C.length-1,Math.floor(x)):cn;while(n<C.length-1&&x>n+1.1)n++;while(n>0&&x<n-.1)n--;
+if(n!==cn){C.forEach((c,k)=>c.classList.toggle('on',k===n));cn=n}
+/* the Sundays slide shows the times big, so the header's small times line steps aside */
+hd.classList.toggle('nw',n===C.length-1&&h!==2)}
 function tick(t){const e=Tg-P,dt=Math.max(0,Math.min(.05,(t-lt)/1e3));lt=t;P=!TA||Math.abs(e)<5e-4?Tg:P+e*(1-Math.exp(-dt/TA));draw(P);run=P!==Tg;if(run)requestAnimationFrame(tick)}
 function aim(){Tg=Math.min(1,Math.max(0,(scrollY-Wt)/Rg));if(!run){run=1;lt=performance.now();requestAnimationFrame(tick)}}
 function fit(){
@@ -371,7 +376,9 @@ H=h;vw=w;SK=SKe.getBoundingClientRect().height;MS=MO.offsetWidth;SS=SU.offsetWid
 /* header: solid bar over the content sections, tucks away on scroll down, returns on scroll up */
 let ly=scrollY;
 addEventListener('scroll',()=>{aim();const y=scrollY,inR=y+40>Rt;
-if(!inR||y<ly-4)hd.classList.remove('hid');else if(y>ly+4&&!hd.contains(document.activeElement))hd.classList.add('hid');ly=y;bar()},{passive:true});
+if(!inR||y<ly-4)hd.classList.remove('hid');else if(y>ly+4&&!hd.contains(document.activeElement))hd.classList.add('hid');ly=y;bar();clearTimeout(stl);stl=setTimeout(settle,200)},{passive:true});
+/* if scrolling stops mid-handoff between the two titles, glide to whichever side is closer */
+let stl;const settle=()=>{const p=Tg;if(!matchMedia('(prefers-reduced-motion:reduce)').matches&&p>.4&&p<.6)scrollTo({top:Wt+Rg*(p<.5?.36:.64),behavior:'smooth'})};
 /* phone bar takes the header's place while it's tucked away, until Visit comes into view */
 const BAR=document.getElementById('bar'),bar=()=>{const on=hd.classList.contains('hid')&&rest.getBoundingClientRect().top>innerHeight;if(on!==!BAR.inert){BAR.inert=!on;BAR.classList.toggle('on',on)}};
 addEventListener('resize',()=>measure());addEventListener('load',()=>measure(1));document.fonts&&document.fonts.ready.then(()=>measure(1));
