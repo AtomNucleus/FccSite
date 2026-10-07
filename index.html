@@ -29,8 +29,10 @@ header nav{display:flex;align-items:center;gap:1.6rem;font-weight:600}
 header nav a{text-decoration:none}
 .pill{padding:.55em 1.2em;border-radius:99px;background:var(--fg,var(--ink));color:var(--bgc,var(--paper))}
 .logo{--lc:var(--fg,#0A0A0A);--lg:var(--bgc,#F3EDE0);display:block;width:clamp(48px,5vw,66px);aspect-ratio:1}
-#world{height:240vh;position:relative}
-.stage{--hs:100vh;--sk:calc(var(--hs)*.473);position:sticky;top:0;height:var(--hs);overflow:hidden;background:#1E1612}
+#world{display:flow-root;height:248vh;margin-bottom:-8vh;position:relative}
+/* Safari 26 paints a solid strip behind its status bar and toolbar when a fixed/sticky box about the viewport's size touches those edges.
+   The transparent border makes the box >105% of the viewport so Safari skips it; children position against the padding box, so the scene is unchanged. */
+.stage{--hs:100vh;--sk:calc(var(--hs)*.473);--bl:8vh;/* keep in step with #world */position:sticky;top:calc(-1*var(--bl));height:var(--hs);box-sizing:content-box;border-block:var(--bl) solid transparent;margin-block:calc(-1*var(--bl));overflow:hidden;background:#1E1612}
 @supports(height:100lvh){.stage{--hs:100lvh}}
 .sky{position:absolute;inset:0;background:#1E1612}.sky i{position:absolute;inset:0;background:#1E1612}.sky .b{opacity:0;will-change:opacity}
 .sky::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(255,255,255,.22))}
@@ -373,7 +375,7 @@ const SVG=[...st.querySelectorAll('svg.sk')];
 function measure(force){const h=st.offsetHeight,w=innerWidth;if(!force&&h===H&&w===vw)return;
 /* phones: crop the empty sky out of the viewBox so the skyline draws bigger and fewer buildings fit across */
 const mob=w<640;st.classList.toggle('mob',mob);SVG.forEach(e=>e.setAttribute('viewBox',mob?'0 100 1600 500':'0 0 1600 600'));RF=mob?.96:.81;
-H=h;vw=w;SK=SKe.getBoundingClientRect().height;MS=MO.offsetWidth;SS=SU.offsetWidth;Rg=W.offsetHeight-H;Wt=W.offsetTop;Rt=document.getElementById('family').offsetTop;fit();aim();draw(P)}
+H=h;vw=w;SK=SKe.getBoundingClientRect().height;MS=MO.offsetWidth;SS=SU.offsetWidth;Rg=W.offsetHeight-st.clientTop-H;Wt=W.offsetTop;Rt=document.getElementById('family').offsetTop;fit();aim();draw(P)}
 /* header: solid bar over the content sections, tucks away on scroll down, returns on scroll up */
 let ly=scrollY;
 addEventListener('scroll',()=>{aim();const y=scrollY,inR=y+40>Rt;
