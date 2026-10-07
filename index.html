@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fordham Community Church</title>
+<meta name="description" content="A church of the Bronx, for the Bronx. Sundays at 9:45 am in Spanish and 11:45 am in English, 2439 Creston Avenue.">
+<meta property="og:title" content="Fordham Community Church"><meta property="og:description" content="A church of the Bronx, for the Bronx. Sundays at 9:45 am in Spanish and 11:45 am in English."><meta property="og:type" content="website"><meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/ae32759d-be8d-4fc1-bd7b-b51a7e49bb7f/Our%2BValues%2BNew.jpg?format=1500w"><meta name="theme-color" content="#F3EDE0">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Church","name":"Fordham Community Church","url":"https://www.fccbronx.org","description":"Sundays 9:45 am in Spanish and 11:45 am in English.","address":{"@type":"PostalAddress","streetAddress":"2439 Creston Avenue","addressLocality":"Bronx","addressRegion":"NY","postalCode":"10468"}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F3EDE0;--ink:#0A0A0A;--rb:#F3EDE0;--rf:#0A0A0A;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--rb:#15120e;--rf:#F3EDE0}}
+:root[data-theme="dark"]{--rb:#15120e;--rf:#F3EDE0}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,::before,::after{box-sizing:inherit}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.05rem/1.55 Archivo,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.06;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+h1,h2,h3,p,ul{margin:0;padding:0}
+a{color:inherit}
+:focus-visible{outline:3px solid #F2B63D;outline-offset:3px}
+.D{font:400 1em/.9 Anton,Impact,"Arial Narrow",sans-serif;text-transform:uppercase}
+header{position:fixed;inset:0 0 auto;z-index:50;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;padding:calc(env(safe-area-inset-top,0px) + 16px) 5vw 12px;--fg:#0A0A0A;--bgc:#F3EDE0;color:var(--fg);transition:color .4s,background-color .3s,box-shadow .3s,transform .35s;pointer-events:none}
+header.dk{--fg:#F3EDE0;--bgc:#1E1612}
+header.rs{--fg:var(--rf);--bgc:var(--rb);background:color-mix(in srgb,var(--rb) 94%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 1px 0 color-mix(in srgb,var(--rf) 18%,transparent)}
+header.hid{transform:translateY(-100%)}
+header>*{pointer-events:auto}
+header nav{display:flex;align-items:center;gap:1.6rem;font-weight:600}
+header nav a{text-decoration:none}
+.pill{padding:.55em 1.2em;border-radius:99px;background:var(--fg,var(--ink));color:var(--bgc,var(--paper))}
+.logo{--lc:var(--fg,#0A0A0A);--lg:var(--bgc,#F3EDE0);display:block;width:clamp(48px,5vw,66px);aspect-ratio:1}
+#world{height:240vh;position:relative}
+.stage{--hs:100vh;--sk:calc(var(--hs)*.473);position:sticky;top:0;height:var(--hs);overflow:hidden;background:#1E1612}
+@supports(height:100lvh){.stage{--hs:100lvh}}
+.sky{position:absolute;inset:0;background:#1E1612}.sky i{position:absolute;inset:0;background:#1E1612}.sky .b{opacity:0;will-change:opacity}
+.sky::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(255,255,255,.22))}
+.orb{position:absolute;left:0;top:0;width:15vmin;height:15vmin;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);background:#F2B63D;will-change:transform,opacity}.moon{width:10vmin;height:10vmin;background:#EFEAD9}
+.stars{position:absolute;inset:0 0 42% 0;will-change:opacity}.stars s{position:absolute;background:#F3EDE0;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}
+.mob{--sk:calc(var(--hs)*.4)}.mob .sk{width:max(100%,calc(var(--sk)*3.2))}.mob .tr,.mob .lat,.mob .stars s:nth-child(2n){display:none}
+@media(max-width:639px){.when{display:none}}
+.lg{opacity:0;transition:opacity .45s}.lg.on{opacity:1}.dg{transition:opacity .8s}
+.sk{position:absolute;left:50%;bottom:0;width:max(100%,calc(var(--sk)*2.667));height:var(--sk);transform:translateX(-50%);z-index:2;pointer-events:none;will-change:transform}
+.n{opacity:0;will-change:transform,opacity}
+.ch{position:absolute;inset:0;z-index:1;padding:clamp(84px,calc(var(--hs)*.14),150px) 6vw 0;color:#0A0A0A;visibility:hidden;transition:visibility 0s .6s,color .5s}
+.dk .ch{color:#F3EDE0}
+.ch.on{visibility:visible;transition-delay:0s}
+.ch h1,.ch h2{overflow:hidden;padding:.06em 0}
+.ch h1{font-size:calc(clamp(3.4rem,10.4vw,10.5rem)*var(--k,1))}
+.ch h2{font-size:calc(min(33vw,calc(var(--hs)*.46),22rem)*var(--k,1))}
+.l{display:inline-block;transform:translateY(112%);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.on .l{transform:none;transition-delay:calc(var(--i)*var(--st,45ms))}
+.f{opacity:0;transform:translateY(14px);transition:opacity .3s,transform .3s}
+.on .f{opacity:1;transform:none;transition:opacity .45s .25s,transform .45s .25s}
+.es{display:block;margin-top:.9rem;font:600 clamp(.9rem,1.5vw,1.15rem) Archivo,sans-serif;letter-spacing:.4em;text-transform:uppercase}
+.ch p{max-width:32ch;margin-top:1rem;font-size:clamp(.95rem,calc(var(--hs)*.022),1.3rem)}
+.hint{display:flex;gap:.8rem;align-items:center;margin-top:1.4rem;font-weight:600}
+.hint i{width:11px;height:11px;background:currentColor;transform:rotate(45deg);animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:rotate(45deg) translate(5px,5px)}}
+.last{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:1.2rem 4vw;align-content:start}
+.ch.last h2{font-size:calc(clamp(4rem,12.5vw,13rem)*var(--k,1))}
+.times{display:flex;flex-wrap:wrap;gap:.4rem 5vw;align-self:start}
+.times b{display:block;font-size:calc(clamp(3.2rem,7.4vw,7rem)*var(--k,1))}
+.times span{display:block;font-weight:600}
+.btn{display:inline-block;margin-top:1.2rem;padding:.8em 1.5em;border-radius:99px;background:#0A0A0A;color:#F3EDE0;text-decoration:none;font-weight:600;transition:background .5s,color .5s}.dk .btn{background:#F3EDE0;color:#1E1612}
+.rest{position:relative;z-index:3;background:var(--rb);color:var(--rf);padding:14vh 6vw 10vh}
+.big{font-size:clamp(3.4rem,11vw,10.5rem)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:3rem 5vw;margin:6vh 0 9vh;max-width:1200px}
+.cols h3{font:600 1.15rem Archivo,sans-serif;margin-bottom:.8rem}
+.cols ul{list-style:none}
+.cols li{padding:.7rem 0;border-top:1px solid color-mix(in srgb,currentColor 25%,transparent)}
+.cols li a{font-weight:600;text-decoration:none}
+.cols li span{display:block;opacity:.7}
+.cols p+p{margin-top:.8rem}
+.ev{list-style:none;max-width:1200px}
+.ev li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.2rem 2rem;align-items:baseline;padding:1rem 0;border-top:2px solid currentColor;font:600 clamp(1.35rem,3.4vw,2.4rem)/1.2 Archivo,sans-serif}
+.ev li:last-child{border-bottom:2px solid currentColor}
+.ev li span+span{font-weight:400;opacity:.75;font-variant-numeric:tabular-nums}
+.evq{margin-top:1.2rem;opacity:.8}
+footer{position:relative;z-index:3;background:#0A0A0A;color:#F3EDE0;padding:9vh 6vw calc(5vh + env(safe-area-inset-bottom,0px));display:grid;gap:2.2rem;border-top:1px solid #333}
+footer .logo{--lc:#F3EDE0;--lg:#0A0A0A;width:64px}
+.tag{font-size:clamp(2.6rem,9vw,8.5rem)}
+.tag i{font-style:normal;color:#C8644A}
+footer nav{display:flex;flex-wrap:wrap;gap:.6rem 1.8rem;font-weight:600}
+footer small{opacity:.7}
+.when{order:3;flex:0 0 100%;margin-top:.55rem;font:600 .72rem/1.2 Archivo,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none}
+header nav button{font:inherit;color:inherit;background:none;border:1.5px solid currentColor;border-radius:99px;padding:.25em .7em;cursor:pointer}
+.ch p,.es{text-shadow:0 0 .7em var(--ha,transparent)}.ch{--ha:#F3EDE0aa}.dk .ch{--ha:#1E1612aa}
+@media(pointer:coarse){body::after{display:none}}
+@media(max-width:560px){header nav a:not(.pill):not([href*=tithe]),.dm{display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.l{transform:none}}
+
+/* the body: full-bleed people panels, then a mosaic of faces; plain scrolling, no scroll effects */
+.body{position:relative;z-index:3;background:#1E1612;color:#F3EDE0}
+.body figure{margin:0;overflow:hidden;background:#2A1B15}
+.body img{display:block;width:100%;height:100%;object-fit:cover;max-width:100%}
+.pan{position:relative;height:min(92vh,960px);min-height:440px}
+.pan::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 38%,rgba(30,22,18,.9))}
+.pan figcaption{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:0 6vw 7vh;display:grid;gap:1rem}
+.pan h2{font-size:clamp(4.5rem,17vw,15rem);line-height:.85;text-wrap:balance}
+.pan.lead h2{font-size:clamp(3.4rem,11vw,10.5rem)}
+.pan p{max-width:36ch;font-size:clamp(1rem,1.6vw,1.3rem);text-wrap:pretty}
+.pan:nth-of-type(3) figcaption{justify-items:end;text-align:right}
+.ref{font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#E4A06A}
+.fam{padding:16vh 6vw 6vh;display:grid;gap:1rem}
+.fam h2{font-size:clamp(3.4rem,11vw,10.5rem);text-wrap:balance}
+.fam p{font-size:clamp(1rem,1.6vw,1.3rem)}
+.mos{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:clamp(170px,26vw,400px);gap:6px;padding:0 6px 6px}
+.mos .w{grid-column:span 2}
+@media(max-width:640px){.mos{grid-template-columns:repeat(2,1fr);grid-auto-rows:46vw}.mos figure:last-child{display:none}}
+@media(hover:hover){.mos img{transition:transform .6s}.mos figure:hover img{transform:scale(1.03)}}
+.kid img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;margin-bottom:.8rem;border-radius:4px}
+</style>
+<noscript><style>#world{height:auto}.stage{position:static;height:auto;overflow:visible}.ch{position:static;visibility:visible;padding:12vh 6vw 0}.f{opacity:1;transform:none}.orb{display:none}</style></noscript>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="lg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" style="fill:var(--lc)"/><g style="fill:var(--lg)"><path d="M50 16 62.8 28.7 50 41.5 37.2 28.7z"/><rect x="30.5" y="53.5" width="6.2" height="27" rx="3"/><rect x="46.9" y="53.5" width="6.2" height="27" rx="3"/><rect x="63.3" y="53.5" width="6.2" height="27" rx="3"/></g></symbol></svg>
+<header class="dk">
+<a href="#" aria-label="Fordham Community Church"><svg class="logo"><use href="#lg"/></svg></a>
+<nav><a href="https://www.fccbronx.org/sermon" data-es="Sermones">Sermons</a><a href="https://tithe.ly/give?c=477320" data-es="Dar">Give</a><button id="lang" type="button" aria-label="Español / English">ES</button><a class="pill" href="#visit" data-es="Visítanos">Visit us</a></nav>
+<a class="when" href="https://www.google.com/maps/search/?api=1&amp;query=2439+Creston+Avenue+Bronx+NY+10468" data-es="Domingos 9:45 en español · 11:45 en inglés&lt;span class=&quot;dm&quot;&gt; · 2439 Creston Ave&lt;/span&gt;">Sundays 9:45 Spanish · 11:45 English<span class="dm"> · 2439 Creston Ave</span></a>
+</header>
+
+<section id="world"><div class="stage dk">
+<div class="sky"><i class="a"></i><i class="b"></i><div class="stars"></div></div><div class="orb moon"></div><div class="orb sun"></div>
+
+<div class="ch">
+<h1 class="D" data-sp data-es="Una iglesia del Bronx, para el Bronx.">A church of the Bronx, for the Bronx.</h1>
+<p class="f" data-es="Fordham Community Church. Edificando una familia del Reino que muestra el amor de Jesús.">Fordham Community Church. Building a Kingdom Family that Displays the Love of Jesus.</p>
+<div class="hint f" data-es="&lt;i&gt;&lt;/i&gt;Baja y mira salir el sol"><i></i>Scroll and watch the sun come up</div>
+</div>
+
+<div class="ch last">
+<div>
+<h2 class="D" data-sp data-es="Domingos">Sundays</h2>
+<p class="f" data-es="2439 Creston Avenue, Bronx, NY 10468. ¿Primera vez en una iglesia? Ven de todos modos.">2439 Creston Avenue, Bronx, NY 10468. First time in a church? Come anyway.</p>
+<a class="btn f" href="https://www.fccbronx.org/sunday-gatherings" data-es="Qué esperar">What to expect</a>
+</div>
+<div class="times f">
+<div><b class="D">9:45</b><span data-es="Servicio en español">Spanish service</span></div>
+<div><b class="D">11:45</b><span data-es="Servicio en inglés">English service</span></div>
+</div>
+</div>
+
+</div></section>
+
+<section class="body" id="family" aria-label="Our church family">
+<figure class="pan lead"><img src="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/ae32759d-be8d-4fc1-bd7b-b51a7e49bb7f/Our%2BValues%2BNew.jpg?format=1000w" srcset="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/ae32759d-be8d-4fc1-bd7b-b51a7e49bb7f/Our%2BValues%2BNew.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/ae32759d-be8d-4fc1-bd7b-b51a7e49bb7f/Our%2BValues%2BNew.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/ae32759d-be8d-4fc1-bd7b-b51a7e49bb7f/Our%2BValues%2BNew.jpg?format=2500w 2500w" sizes="100vw" alt="Church members worshiping together with hands raised" loading="lazy" decoding="async"><figcaption><h2 class="D" data-es="Somos el cuerpo">We are the body</h2><p class="ref" data-es="1 Corintios 12:27">1 Corinthians 12:27</p></figcaption></figure>
+<figure class="pan"><img src="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1778986450433-K2U2UR7V3LRZX7E89NJD/image-asset.jpeg?format=1000w" srcset="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1778986450433-K2U2UR7V3LRZX7E89NJD/image-asset.jpeg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1778986450433-K2U2UR7V3LRZX7E89NJD/image-asset.jpeg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1778986450433-K2U2UR7V3LRZX7E89NJD/image-asset.jpeg?format=2500w 2500w" sizes="100vw" alt="A preacher with his fist raised, teaching the congregation on a Sunday" loading="lazy" decoding="async"><figcaption><h2 class="D" data-es="Conocer">Know</h2><p data-es="Conocer la Palabra de Dios y el Evangelio. Cada domingo abrimos la Biblia y la enseñamos pasaje por pasaje.">Knowing God's word and the Gospel. Every Sunday we open the Bible and teach it passage by passage.</p></figcaption></figure>
+<figure class="pan"><img src="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/2fb9e996-6959-479c-a117-4404252955ac/How%2Bto%2BConnect.jpg?format=1000w" srcset="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/2fb9e996-6959-479c-a117-4404252955ac/How%2Bto%2BConnect.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/2fb9e996-6959-479c-a117-4404252955ac/How%2Bto%2BConnect.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/2fb9e996-6959-479c-a117-4404252955ac/How%2Bto%2BConnect.jpg?format=2500w 2500w" sizes="100vw" alt="Three church members talking together after the service" loading="lazy" decoding="async"><figcaption><h2 class="D" data-es="Vivir">Live</h2><p data-es="Vivir como familia, siguiendo a Jesús juntos. Durante la semana, los City Link Groups se reúnen para leer las Escrituras y orar unos por otros.">Living like family, following Jesus together. Through the week, City Link Groups gather to read Scripture and pray for one another.</p></figcaption></figure>
+<figure class="pan"><img src="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/aee34917-9eec-4255-8ba1-4e6825771a76/Our%2BVision.jpg?format=1000w" srcset="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/aee34917-9eec-4255-8ba1-4e6825771a76/Our%2BVision.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/aee34917-9eec-4255-8ba1-4e6825771a76/Our%2BVision.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/aee34917-9eec-4255-8ba1-4e6825771a76/Our%2BVision.jpg?format=2500w 2500w" sizes="100vw" alt="Worship leaders singing in front of the congregation, beside the church mural" loading="lazy" decoding="async"><figcaption><h2 class="D" data-es="Amar">Love</h2><p data-es="Amar a nuestros vecinos de palabra y de hecho, en Fordham, Kingsbridge, el Bronx y más allá.">Loving our neighbors in word and deed, in Fordham, Kingsbridge, the Bronx and beyond.</p></figcaption></figure>
+<div class="fam"><h2 class="D" data-es="Esta es la iglesia">This is the church</h2><p data-es="Los domingos, entre semana, en la calle Creston. Ven a conocernos.">Sundays, midweek, on Creston Avenue. Come meet us.</p></div>
+<div class="mos"><figure class="w"><img src="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1647029045117-XKAPA69W832U50F8C8QB/FCC%2BPhotos-27.jpg?format=1000w" srcset="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1647029045117-XKAPA69W832U50F8C8QB/FCC%2BPhotos-27.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1647029045117-XKAPA69W832U50F8C8QB/FCC%2BPhotos-27.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1647029045117-XKAPA69W832U50F8C8QB/FCC%2BPhotos-27.jpg?format=2500w 2500w" sizes="(max-width:640px) 100vw, 66vw" alt="The worship band singing" loading="lazy" decoding="async"></figure><figure><img src="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/68e8e5b4-9462-4d1d-b88e-d192b9f54934/FCC%2BPhotos-17.jpg?format=1000w" srcset="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/68e8e5b4-9462-4d1d-b88e-d192b9f54934/FCC%2BPhotos-17.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/68e8e5b4-9462-4d1d-b88e-d192b9f54934/FCC%2BPhotos-17.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/68e8e5b4-9462-4d1d-b88e-d192b9f54934/FCC%2BPhotos-17.jpg?format=2500w 2500w" sizes="(max-width:640px) 50vw, 33vw" alt="Two singers leading worship" loading="lazy" decoding="async"></figure><figure><img src="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/beb1a2f2-e0e6-441e-bb66-1c63d3aeee77/Is%2BOur%2BChurch%2Bfor%2BYou.jpg?format=1000w" srcset="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/beb1a2f2-e0e6-441e-bb66-1c63d3aeee77/Is%2BOur%2BChurch%2Bfor%2BYou.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/beb1a2f2-e0e6-441e-bb66-1c63d3aeee77/Is%2BOur%2BChurch%2Bfor%2BYou.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/beb1a2f2-e0e6-441e-bb66-1c63d3aeee77/Is%2BOur%2BChurch%2Bfor%2BYou.jpg?format=2500w 2500w" sizes="(max-width:640px) 50vw, 33vw" alt="Two men talking over coffee" loading="lazy" decoding="async"></figure><figure class="w"><img src="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1776219125014-XS1VYMH47UYOCCVI9P8W/image-asset.jpeg?format=1000w" srcset="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1776219125014-XS1VYMH47UYOCCVI9P8W/image-asset.jpeg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1776219125014-XS1VYMH47UYOCCVI9P8W/image-asset.jpeg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1776219125014-XS1VYMH47UYOCCVI9P8W/image-asset.jpeg?format=2500w 2500w" sizes="(max-width:640px) 100vw, 66vw" alt="The congregation listening to a sermon" loading="lazy" decoding="async"></figure><figure><img src="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1775860353947-N5UVFVCOWNOY5FI682II/image-asset.jpeg?format=1000w" srcset="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1775860353947-N5UVFVCOWNOY5FI682II/image-asset.jpeg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1775860353947-N5UVFVCOWNOY5FI682II/image-asset.jpeg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1775860353947-N5UVFVCOWNOY5FI682II/image-asset.jpeg?format=2500w 2500w" sizes="(max-width:640px) 50vw, 33vw" alt="A sermon in the sanctuary" loading="lazy" decoding="async"></figure><figure><img src="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1605024130186-8BKHYLV9F8QXRTD570D2/IMG_2385.jpg?format=1000w" srcset="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1605024130186-8BKHYLV9F8QXRTD570D2/IMG_2385.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1605024130186-8BKHYLV9F8QXRTD570D2/IMG_2385.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1605024130186-8BKHYLV9F8QXRTD570D2/IMG_2385.jpg?format=2500w 2500w" sizes="(max-width:640px) 50vw, 33vw" alt="A church member in an FCC T-shirt" loading="lazy" decoding="async"></figure><figure><img src="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1777779544633-E6FS05K8I8MA7SZ9S0EA/image-asset.jpeg?format=1000w" srcset="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1777779544633-E6FS05K8I8MA7SZ9S0EA/image-asset.jpeg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1777779544633-E6FS05K8I8MA7SZ9S0EA/image-asset.jpeg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1777779544633-E6FS05K8I8MA7SZ9S0EA/image-asset.jpeg?format=2500w 2500w" sizes="(max-width:640px) 50vw, 33vw" alt="An elder teaching with a microphone" loading="lazy" decoding="async"></figure></div>
+</section>
+
+<section class="rest" id="visit">
+<h2 class="D big" data-es="¿Es esta iglesia para ti? Sí.">Is our church for you? Yes.</h2>
+<div class="cols">
+<div>
+<h3 data-es="Encuéntranos">Find us</h3>
+<p data-es="Estamos en el corazón de Fordham, en la esquina de Creston Avenue y East 188th Street. Domingos a las 9:45 am en español y a las 11:45 am en inglés.">We're in the heart of Fordham, at the corner of Creston Avenue and East 188th Street. Sundays at 9:45 am in Spanish and 11:45 am in English.</p>
+<p data-es="Toma el tren 4, B o D hasta Fordham Road, o los buses BX1, BX2 o BX12.">Take the 4, B or D to Fordham Road, or catch the BX1, BX2 or BX12 bus.</p>
+<p><a href="https://www.google.com/maps/search/?api=1&query=2439+Creston+Avenue+Bronx+NY+10468" data-es="Abrir en Mapas">Open in Maps</a></p>
+</div>
+<div>
+<h3 data-es="Conéctate">Connect</h3>
+<ul>
+<li><a href="https://www.fccbronx.org/city-link-groups">City Link Groups</a><span data-es="Reuniones entre semana para leer las Escrituras, orar y amar a nuestros vecinos.">Midweek gatherings to read Scripture, pray and love our neighbors.</span></li>
+<li class="kid"><img src="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1630004320550-7RUI4PMHZLM5F16NXX4N/IMG_4141.jpg?format=1000w" srcset="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1630004320550-7RUI4PMHZLM5F16NXX4N/IMG_4141.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1630004320550-7RUI4PMHZLM5F16NXX4N/IMG_4141.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1630004320550-7RUI4PMHZLM5F16NXX4N/IMG_4141.jpg?format=2500w 2500w" sizes="(max-width:640px) 100vw, 40vw" alt="The FCC Kids check-in corner" loading="lazy" decoding="async"><a href="https://www.fccbronx.org/fcc-kids">FCC Kids</a><span data-es="Desde la guardería hasta la primaria.">Nursery through elementary.</span></li>
+<li><a href="https://www.fccbronx.org/serve" data-es="Servir">Serve</a><span data-es="Amar a Fordham y al sur del Bronx con hechos.">Love Fordham and the South Bronx in practice.</span></li>
+<li><a href="https://www.fccbronx.org/sermon" data-es="Sermones">Sermons</a><span data-es="Ponte al día con la Palabra.">Catch up on the Word.</span></li>
+<li><a href="https://tithe.ly/give?c=477320" data-es="Dar">Give</a><span data-es="Da en línea.">Give online.</span></li>
+</ul>
+</div>
+</div>
+<h3 id="evh" data-es="Próximamente" style="font:600 1.15rem Archivo,sans-serif;margin-bottom:1rem">Coming up</h3>
+<ul class="ev" id="ev"></ul>
+<p class="evq" id="evq" data-es="¿Preguntas sobre alguno? &lt;a href=&quot;https://www.fccbronx.org/contact&quot;&gt;Escríbenos&lt;/a&gt;">Questions about any of these? <a href="https://www.fccbronx.org/contact">Get in touch</a></p>
+</section>
+
+<footer>
+<svg class="logo" role="img" aria-label="Fordham Community Church"><use href="#lg"/></svg>
+<p class="D tag" data-es="Conocer <i>/</i> Vivir <i>/</i> Amar">Know <i>/</i> Live <i>/</i> Love</p>
+<nav>
+<a href="https://www.fccbronx.org/about-us" data-es="Nosotros">About</a><a href="https://www.fccbronx.org/what-we-believe" data-es="Lo que creemos">What we believe</a><a href="https://www.fccbronx.org/team" data-es="Equipo">Team</a><a href="https://www.fccbronx.org/fcc-building-campaign" data-es="Campaña de construcción">Building campaign</a><a href="https://www.fccbronx.org/contact" data-es="Contacto">Contact</a><a href="https://www.instagram.com/fcc_bronx/">Instagram</a><a href="https://www.youtube.com/channel/UCt1xhWX4lXxAm6qKemmmhKw">YouTube</a><a href="https://www.facebook.com/Fccbronx2018/">Facebook</a><a href="https://tithe.ly/give?c=477320" data-es="Dar">Give</a>
+</nav>
+<small data-es="Fordham Community Church, 2439 Creston Avenue, Bronx, NY 10468. Siete años en el Bronx, 2019 a 2026.">Fordham Community Church, 2439 Creston Avenue, Bronx, NY 10468. Seven years in the Bronx, 2019 to 2026.</small>
+</footer>
+
+<script>
+(()=>{
+const R=document.documentElement,W=document.getElementById('world'),st=W.firstElementChild,C=[...st.querySelectorAll('.ch')],MO=st.querySelector('.moon'),SU=st.querySelector('.sun'),STARS=st.querySelector('.stars'),rest=document.getElementById('visit'),hd=document.querySelector('header');
+const ext_=()=>document.querySelectorAll('a[href^=http]').forEach(a=>{a.target='_blank';a.rel='noopener'});ext_();
+
+/* ---------- skyline model: fills (day + night), lit windows, outlines, doors ---------- */
+const G=560,T='#0A0A0A',WD='#4A342A',WN='#241812',WL='#F7C95B';
+let seed=11;const rnd=()=>(seed=seed*16807%2147483647)/2147483647;
+const mx=(h,t,k)=>{const a=parseInt(h.slice(1),16),b=parseInt(t.slice(1),16);return'#'+[16,8,0].map(s=>Math.round(((a>>s)&255)*(1-k)+((b>>s)&255)*k).toString(16).padStart(2,'0')).join('')};
+const R4=(x,y,w,h,ex='')=>`<rect x="${x}" y="${y}" width="${w}" height="${h}"${ex} />`;
+const base=[],ext=[],Wn=[];let O='',Dr='',DG='',HALO='';
+const box=(x,y,w,h,col)=>{base.push(c=>R4(x,y,w,h,` fill="${c(col)}"`));O+=R4(x,y,w,h)};
+const win=(x,y,w,h,t,rx=2)=>Wn.push({t,s:f=>R4(x,y,w,h,` rx="${rx}" fill="${f}"`)});
+/* when each apartment window switches on: 0 = already on at night, .4-.55 = waking up during "Live", 9 = stays dark */
+const tA=()=>{const r=rnd();return r<.28?0:r<.4?.4:r<.52?.45:r<.63?.5:r<.75?.55:9};
+const arch=(cx,w,h)=>`M${cx-w/2} ${G}v-${h-w/2}a${w/2} ${w/2} 0 0 1 ${w} 0v${h-w/2}z`;
+const tower=(x,ry)=>ext.push(c=>`<g stroke="${T}" stroke-width="3" fill="${c('#C9A06B')}"><path d="M${x+8} ${ry}l6-16M${x+62} ${ry}l-6-16M${x+35} ${ry}v-16" /><rect x="${x}" y="${ry-68}" width="70" height="52" rx="5" /><path d="M${x-5} ${ry-68}l40-24 40 24z" /></g>`);
+const tree=x=>ext.push(c=>`<g class="tr"><path d="M${x} ${G}V${G-50}" stroke="${T}" stroke-width="5" /><circle cx="${x}" cy="${G-74}" r="32" fill="${c('#6E7A3B')}" stroke="${T}" stroke-width="3" /></g>`);
+
+/* walk-up with a fire escape */
+const ten=(x,w,h,col)=>{const y=G-h;box(x,y,w,h,col);box(x-5,y-10,w+10,12,col);
+const q=Math.max(2,Math.floor((w-16)/36)),x0=x+(w-q*36)/2+10,rows=Math.floor((h-96)/46);
+for(let r=0;r<rows;r++)for(let i=0;i<q;i++)win(x0+i*36,y+28+r*46,16,26,tA());
+const fe=q>3?1:0,fx=x0+fe*36-10,fw=72,py=r=>y+28+r*46+30;
+for(let r=0;r<rows&&py(r)<=G-50;r++){O+=`<path d="M${fx} ${py(r)}h${fw}" /><rect x="${fx}" y="${py(r)-12}" width="${fw}" height="12" stroke-width="2" />`;
+if(r+1<rows&&py(r+1)<=G-50)O+=r%2?`<path d="M${fx+fw-8} ${py(r)}L${fx+8} ${py(r+1)}" stroke-width="2.5" />`:`<path d="M${fx+8} ${py(r)}L${fx+fw-8} ${py(r+1)}" stroke-width="2.5" />`}
+Dr+=`<path d="${arch(x+w-30,28,50)}" />`};
+
+/* pre-war co-op: stepped cornice, windows in threes, water tower */
+const coop=(x,w,h,col)=>{const y=G-h;box(x,y,w,h,col);box(x-8,y-14,w+16,10,col);box(x-3,y-5,w+6,6,col);
+const gw=60,sp=24,nG=Math.max(1,Math.floor((w-24+sp)/(gw+sp))),gx=x+(w-(nG*gw+(nG-1)*sp))/2,rows=Math.floor((h-100)/50);
+for(let r=0;r<rows;r++)for(let g=0;g<nG;g++)for(let k=0;k<3;k++)win(gx+g*(gw+sp)+k*22,y+26+r*50,16,30,tA());
+tower(x+Math.round(w*.62)-35,y-14);Dr+=`<path d="${arch(x+w/2,40,62)}" />`};
+
+/* Grand Concourse art deco: setbacks, vertical window strips, spire */
+const deco=(x,w,h,col)=>{const y=G-h;box(x,y+90,w,h-90,col);box(x+18,y+45,w-36,47,col);box(x+46,y+12,w-92,35,col);O+=`<path d="M${x+w/2} ${y+12}v-34" stroke-width="4" />`;
+const q=Math.floor((w-20)/24),x0=x+(w-q*24)/2+7,rows=Math.floor((h-170)/44);
+for(let r=0;r<rows;r++)for(let i=0;i<q;i++)win(x0+i*24,y+108+r*44,10,30,tA(),1);
+const q2=Math.floor((w-52)/24),x2=x+18+(w-36-q2*24)/2+7;for(let i=0;i<q2;i++)win(x2+i*24,y+56,10,26,tA(),1);
+Dr+=`<path d="${arch(x+w/2,36,58)}" />`};
+
+/* corner bodega under the el: sign band, striped awning, storefront lit all night */
+const bod=(x,w,h,col,aw)=>{const y=G-h;box(x,y,w,h,col);box(x-4,y-8,w+8,9,col);
+const q=Math.floor((w-12)/34),x0=x+(w-q*34)/2+9;for(let i=0;i<q;i++)win(x0+i*34,y+12,16,24,tA());
+base.push(c=>R4(x+4,y+46,w-8,16,` fill="${c('#4A342A')}"`));O+=R4(x+4,y+46,w-8,16);
+const n=Math.max(4,Math.round((w+12)/18));
+ext.push(c=>{let s='';for(let k=0;k<n;k++){const a=x+2+(w-4)*k/n,b=x+2+(w-4)*(k+1)/n,a2=x-6+(w+12)*k/n,b2=x-6+(w+12)*(k+1)/n;s+=`<path d="M${a} ${y+62}H${b}L${b2} ${y+84}H${a2}z" fill="${c(k%2?'#F3EDE0':aw)}" />`}return s});
+O+=`<path d="M${x+2} ${y+62}H${x+w-2}L${x+w+6} ${y+84}H${x-6}z" />`;
+win(x+10,y+92,w-58,G-y-98,0,1);Dr+=R4(x+w-38,y+92,26,G-y-92)};
+
+/* the church: cream gable, diamond window over three tall windows (the logo), double doors */
+const church=(x,w,h,col)=>{const y=G-h,cx=x+w/2,gab=`M${x-8} ${y+2}L${cx} ${y-58}L${x+w+8} ${y+2}z`;
+box(x,y,w,h,col);base.push(c=>`<path d="${gab}" fill="${c('#EDE4D1')}" />`);O+=`<path d="${gab}" />`;box(x-4,y,w+8,10,'#EDE4D1');
+const dm=`M${cx} ${y-40}l14 14-14 14-14-14z`;Wn.push({t:.2,s:f=>`<path d="${dm}" fill="${f}" />`});O+=`<path d="${dm}" stroke-width="3" />`;
+[-35,-8,19].forEach(d=>win(cx+d,y+28,16,78,.2,8));
+[y+28,y+80].forEach(wy=>{win(x+16,wy,16,28,.2);win(x+w-32,wy,16,28,.2)});
+HALO=`<ellipse cx="${cx}" cy="${y+10}" rx="210" ry="160" fill="url(#hg)" />`;
+Dr+=`<path d="${arch(cx,58,76)}" />`;DG=`<path class="dg" d="${arch(cx,46,68)}" fill="${WL}" opacity="0" />`};
+
+ten(10,160,270,'#B65A41');bod(180,120,120,'#EDE4D1','#C8644A');coop(310,240,330,'#D9AE86');ten(560,150,250,'#C98F5B');
+church(720,200,290,'#A8482F');deco(930,170,400,'#EDE4D1');coop(1110,230,310,'#B65A41');bod(1350,110,130,'#D9AE86','#6E7A3B');ten(1470,125,240,'#C98F5B');
+[555,1105,1465].forEach(tree);
+
+const fills=n=>{const c=h=>n?mx(h,'#2A1B15',.74):h,wc=n?WN:WD;return base.map(f=>f(c)).join('')+Wn.map(w=>w.s(wc)).join('')+ext.map(f=>f(c)).join('')};
+const TH=[0,.2,.4,.45,.5,.55];
+const lit=TH.map(t=>`<g class="lg" data-t="${t}">${t==.2?HALO:''}${Wn.filter(w=>w.t===t).map((w,k)=>w.s(k%3?WL:'#FFE3A1')).join('')}</g>`).join('');
+const tiles=s=>[-1600,0,1600].map(d=>`<g transform="translate(${d} 0)">${s}</g>`).join('');
+const rp=(id,s)=>`<g id="${id}">${s}</g><use href="#${id}" x="-1600" /><use href="#${id}" x="1600" />`;
+const sv=(cl,s)=>`<svg class="${cl}" viewBox="0 0 1600 600" preserveAspectRatio="xMidYMax meet" aria-hidden="true">${s}</svg>`;
+
+/* the elevated 4 line over Jerome Ave */
+let el=`<rect x="0" y="404" width="1600" height="10" fill="${T}" /><path d="M0 414H1600M0 434H1600" stroke="${T}" stroke-width="3" />`,z='M0 434';
+for(let x=0;x<1600;x+=20)z+=`L${x+10} 414L${x+20} 434`;el+=`<path class="lat" d="${z}" fill="none" stroke="${T}" stroke-width="2.2" />`;
+for(let x=80;x<1600;x+=160)el+=`<rect x="${x-5}" y="434" width="10" height="126" fill="${T}" /><path d="M${x-14} 434h28l-9 10h-10z" fill="${T}" />`;
+let tb='',to='',tw='',tl='';
+for(let k=0;k<5;k++){const x=k*148,rx=k==0||k==4?10:4;
+tb+=`<rect x="${x}" y="366" width="140" height="34" rx="${rx}" fill="#D8CDBB" stroke="${T}" stroke-width="3" /><path d="M${x+5} 392h130" stroke="#C8644A" stroke-width="3" />${R4(x+14,400,26,4,` fill="${T}"`)}${R4(x+100,400,26,4,` fill="${T}"`)}`;
+to+=R4(x+1.5,367.5,137,31,` rx="${rx}" fill="#2A1B15"`);
+for(let i=0;i<6;i++){const wx=x+10+i*21;tw+=R4(wx,374,13,11,` rx="2" fill="#4A342A"`);tl+=R4(wx,374,13,11,` rx="2" fill="${WL}"`)}}
+const train=`<g id="tr" transform="translate(-2000 0)">${tb}<g id="tno">${to}</g>${tw}<g id="tlw">${tl}</g></g>`;
+
+/* neighbors walking to church on Sunday morning: [start x, end x at the doors, scale] */
+const PP=[[300,742,1],[430,780,1],[478,800,.7],[520,838,1],[610,762,1],[1020,856,1],[1062,876,.7],[1170,890,1],[1250,818,1]];
+const person=`<circle cy="-40" r="6.5" /><path d="M-7.5 -14v-13a7.5 7.5 0 0 1 15 0v13z" /><path d="M-4 -15l-2.5 15M4 -15l2.5 15" stroke="${T}" stroke-width="4.5" stroke-linecap="round" fill="none" />`;
+const people=`<g id="pp" fill="${T}" opacity="0">${PP.map(()=>`<g>${person}</g>`).join('')}</g>`;
+
+st.insertAdjacentHTML('beforeend',
+ sv('sk',rp('cD',fills(0)))+sv('sk n',rp('cN',fills(1)))+
+ sv('sk lit',`<defs><radialGradient id="hg"><stop offset="0" stop-color="#F7C95B" stop-opacity=".5" /><stop offset="1" stop-color="#F7C95B" stop-opacity="0" /></radialGradient></defs>${tiles(lit)}`)+
+ sv('sk',`<rect x="-1700" y="${G}" width="5000" height="40" fill="${T}" /><g fill="${T}">${rp('cK',Dr)}</g>${tiles(DG)}<g fill="none" stroke="${T}" stroke-width="3.5" stroke-linejoin="round">${rp('cO',O)}</g>${rp('cE',el)}${train}${people}`));
+let sh='';for(let i=0;i<46;i++){const s=(2+rnd()*4).toFixed(1);sh+=`<s style="left:${(rnd()*100).toFixed(1)}%;top:${(rnd()*100).toFixed(1)}%;width:${s}px;height:${s}px;opacity:${(.4+rnd()*.6).toFixed(2)}"></s>`}STARS.innerHTML=sh;
+
+/* ---------- scroll: night to Sunday sunrise ---------- */
+const SKe=st.querySelector('.sk'),N=st.querySelector('.sk.n'),LIT=st.querySelector('.sk.lit'),SA=st.querySelector('.sky .a'),SB=st.querySelector('.sky .b'),
+TR=document.getElementById('tr'),TNO=document.getElementById('tno'),TLW=document.getElementById('tlw'),PPg=document.getElementById('pp'),PE=[...PPg.children],
+LG=[...st.querySelectorAll('.lg')].map(g=>[g,+g.dataset.t,-1]),DGs=[...st.querySelectorAll('.dg')];
+const S=[[0,[30,22,18]],[.34,[46,30,24]],[.54,[86,46,34]],[.66,[156,80,50]],[.77,[228,150,96]],[.89,[241,223,183]],[1,[243,237,224]]];
+const ss=(a,b,x)=>{x=Math.min(1,Math.max(0,(x-a)/(b-a)));return x*x*(3-2*x)};
+const TA=matchMedia('(prefers-reduced-motion:reduce),(pointer:coarse)').matches?0:.09;
+let RF=.81,P=0,Tg=0,run=0,cn=-1,dk=-1,hs=-1,last=-1,lt=0,H=1,Rg=1,Wt=0,Rt=0,vw=1,SK=1,MS=1,SS=1,dO=-1;
+function draw(p){
+let i=1;while(i<S.length-1&&p>S[i][0])i++;
+const [p0,c0]=S[i-1],[p1,c1]=S[i],u=(p-p0)/(p1-p0),night=1-ss(.64,.9,p);
+if(i!==last){SA.style.backgroundColor='rgb('+c0+')';SB.style.backgroundColor='rgb('+c1+')';last=i}
+SB.style.opacity=u.toFixed(3);
+N.style.opacity=night.toFixed(3);LIT.style.opacity=(1-ss(.72,.9,p)).toFixed(3);STARS.style.opacity=(1-ss(.48,.7,p)).toFixed(3);
+const roof=H-SK*RF,m=Math.min(1,p/.66);
+MO.style.opacity=(1-ss(.58,.66,p)).toFixed(3);
+MO.style.transform=`translate3d(${((84-50*m)*vw/100-MS/2).toFixed(1)}px,${(roof-MS*1.3+(SK*.5+MS)*m*m).toFixed(1)}px,0)`;
+const v=ss(.62,1,p);
+SU.style.transform=`translate3d(${((74+6*v)*vw/100-SS/2).toFixed(1)}px,${(H-SK*.3+(roof-SS*1.15-(H-SK*.3))*v).toFixed(1)}px,0)`;
+const k=Math.min(1,Math.max(0,(p-.34)/.34));TR.setAttribute('transform',`translate(${(-2000+5600*k).toFixed(0)} 0)`);
+TNO.style.opacity=(night*.55).toFixed(3);TLW.style.opacity=night.toFixed(3);
+PPg.style.opacity=ss(.6,.67,p).toFixed(3);const w=ss(.62,.95,p);
+PE.forEach((e,j)=>{const[a,b,s]=PP[j],x=a+(b-a)*w;e.setAttribute('transform',`translate(${x.toFixed(1)} ${(G-Math.abs(Math.sin(x*.11))*2.5).toFixed(1)}) scale(${s})`)});
+LG.forEach(g=>{const on=p>=g[1]?1:0;if(on!==g[2]){g[2]=on;g[0].classList.toggle('on',!!on)}});
+const d=p>=.86?1:0;if(d!==dO){dO=d;DGs.forEach(e=>e.style.opacity=d)}
+const nt=p<.71?1:0,h=scrollY+40>Rt?2:nt;
+if(nt!==dk){dk=nt;st.classList.toggle('dk',!!nt)}
+if(h!==hs){hs=h;hd.classList.toggle('dk',h==1);hd.classList.toggle('rs',h==2)}
+const n=Math.min(C.length-1,Math.floor(p*C.length));
+if(n!==cn){C.forEach((c,k)=>c.classList.toggle('on',k===n));cn=n}}
+function tick(t){const e=Tg-P,dt=Math.max(0,Math.min(.05,(t-lt)/1e3));lt=t;P=!TA||Math.abs(e)<5e-4?Tg:P+e*(1-Math.exp(-dt/TA));draw(P);run=P!==Tg;if(run)requestAnimationFrame(tick)}
+function aim(){Tg=Math.min(1,Math.max(0,(scrollY-Wt)/Rg));if(!run){run=1;lt=performance.now();requestAnimationFrame(tick)}}
+function fit(){
+const lim=H-SK*RF-14;
+C.forEach(c=>{
+const hh=c.querySelector('h1,h2'),ok=()=>{let b=0;for(const e of c.children)b=Math.max(b,e.offsetTop+e.offsetHeight);return b<=lim&&hh.scrollWidth<=hh.clientWidth+1};
+let lo=.3,hi=1;c.style.setProperty('--k',1);
+if(ok())return;
+for(let i=0;i<8;i++){const m=(lo+hi)/2;c.style.setProperty('--k',m);if(ok())lo=m;else hi=m}
+c.style.setProperty('--k',lo.toFixed(3))})}
+const SVG=[...st.querySelectorAll('svg.sk')];
+function measure(force){const h=st.offsetHeight,w=innerWidth;if(!force&&h===H&&w===vw)return;
+/* phones: crop the empty sky out of the viewBox so the skyline draws bigger and fewer buildings fit across */
+const mob=w<640;st.classList.toggle('mob',mob);SVG.forEach(e=>e.setAttribute('viewBox',mob?'0 100 1600 500':'0 0 1600 600'));RF=mob?.96:.81;
+H=h;vw=w;SK=SKe.getBoundingClientRect().height;MS=MO.offsetWidth;SS=SU.offsetWidth;Rg=W.offsetHeight-H;Wt=W.offsetTop;Rt=document.getElementById('family').offsetTop;fit();aim();draw(P)}
+/* header: solid bar over the content sections, tucks away on scroll down, returns on scroll up */
+let ly=scrollY;
+addEventListener('scroll',()=>{aim();const y=scrollY,inR=y+40>Rt;
+if(!inR||y<ly-4)hd.classList.remove('hid');else if(y>ly+4&&!hd.contains(document.activeElement))hd.classList.add('hid');ly=y},{passive:true});
+addEventListener('resize',()=>measure());addEventListener('load',()=>measure(1));document.fonts&&document.fonts.ready.then(()=>measure(1));
+const sp=(e,t)=>{let n=0;e.setAttribute('aria-label',t);e.innerHTML=t.split(' ').map(w=>`<span aria-hidden="true" style="display:inline-block;white-space:nowrap">${[...w].map(c=>`<span class="l" style="--i:${n++}">${c}</span>`).join('')}</span>`).join(' ');e.style.setProperty('--st',Math.min(22,240/n)+'ms')};
+const I=[...document.querySelectorAll('[data-es]')],LB=document.getElementById('lang'),EL=document.getElementById('ev'),EH=document.getElementById('evh'),EQ=document.getElementById('evq'),t0=new Date(new Date().setHours(0,0,0,0)),dd=x=>new Date(x+'T00:00'),
+EV=[['Youth Night','Noche de jóvenes',['2026-10-16']],['Membership Classes','Clases de membresía',['2026-10-11','2026-10-25','2026-11-01','2026-11-15']],['Coat Drive','Colecta de abrigos',['2026-12-05']]];
+I.forEach(e=>e.dataset.en=e.hasAttribute('data-sp')?e.textContent.trim():e.innerHTML);
+function lang(l,first){R.lang=l;LB.textContent=l=='es'?'EN':'ES';
+I.forEach(e=>{const t=e.dataset[l];e.hasAttribute('data-sp')?sp(e,t):e.innerHTML=t});ext_();
+const rows=EV.map(([n,s,d])=>[l=='es'?s:n,d.filter(x=>dd(x)>=t0)]).filter(r=>r[1].length).sort((a,b)=>a[1][0]<b[1][0]?-1:1),f=new Intl.DateTimeFormat(l,{month:'short',day:'numeric'});
+EL.innerHTML=rows.map(([n,d])=>`<li><span>${n}</span><span>${d.map(x=>f.format(dd(x))).join(', ')}</span></li>`).join('');
+EL.hidden=EH.hidden=EQ.hidden=!rows.length;try{localStorage.setItem('l',l)}catch(_){}
+if(!first)measure(1)}
+let l0;try{l0=localStorage.getItem('l')}catch(_){}
+lang(l0||((navigator.language||'').slice(0,2)=='es'?'es':'en'),1);
+LB.onclick=()=>lang(R.lang=='es'?'en':'es');
+document.querySelectorAll('a[href="#visit"]').forEach(a=>a.onclick=e=>{e.preventDefault();scrollTo({top:rest.offsetTop,behavior:'instant'})});
+document.querySelectorAll('.body img,.kid img').forEach(i=>{const f=()=>(i.closest('figure')||i).remove();if(i.complete&&!i.naturalWidth)f();else i.addEventListener('error',f)});
+measure(1);P=Tg;draw(P);
+})();
+</script>
+</body>
+</html>
