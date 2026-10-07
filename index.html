@@ -30,21 +30,19 @@ header nav{display:flex;align-items:center;gap:1.6rem;font-weight:600}
 header nav a{text-decoration:none}
 .pill{padding:.55em 1.2em;border-radius:99px;background:var(--fg,var(--ink));color:var(--bgc,var(--paper))}
 .logo{--lc:var(--fg,#0A0A0A);--lg:var(--bgc,#F3EDE0);display:block;width:clamp(48px,5vw,66px);aspect-ratio:1}
-#world{display:flow-root;height:248vh;/* keep in step with the stage's pin range */margin-bottom:-8vh;position:relative;background:#3B312C}
-/* The block borders run the stage 8vh past both screen edges, behind the status bar and the toolbar; children position against the padding box, so the scene is unchanged.
-   JS colors the top border like the sky's top edge; the bottom border is asphalt. */
-.stage{--hs:100vh;--sk:calc(var(--hs)*.473);--bl:8vh;/* keep in step with #world */position:sticky;top:calc(-1*var(--bl));height:var(--hs);box-sizing:content-box;border-block:var(--bl) solid transparent;margin-block:calc(-1*var(--bl));overflow:hidden;background:#1E1612}
+#world{display:flow-root;height:248vh;margin-bottom:-8vh;position:relative;background:#3B312C}
+/* Safari 26 puts a flat bar behind the status bar, colored once at load and never updated, if a sticky/fixed box reaches up behind it.
+   So the stage pins 10px under the status bar (at 1px Safari still counts it), and the status bar blurs #world's .cap instead, which JS keeps the sky's color.
+   The bottom border is what the next section slides over as the scene leaves (keep --bl in step with #world's margin). */
+.stage{--hs:100vh;--sk:calc(var(--hs)*.473);--bl:8vh;--tp:10px;position:sticky;top:var(--tp);z-index:1;height:var(--hs);box-sizing:content-box;border-bottom:var(--bl) solid transparent;margin-bottom:calc(-1*var(--bl));overflow:hidden;background:#1E1612}
 @supports(height:100lvh){.stage{--hs:100lvh}
 /* iOS 26 Safari cuts the pinned stage off at the top of its toolbar and shows the scrolling page below that line.
    So the road sits just above that line (100svh) and runs to the stage bottom, and #world under the toolbar is the same asphalt.
    The lane line lives in the pinned part, so it holds still; only plain asphalt continues under the toolbar. */
-.stage{--rd:calc(var(--sk)*.17)}.stage .sk{bottom:calc(var(--hs) - 100svh + var(--rd))}
-.stage::after{content:"";position:absolute;inset:auto 0 0;z-index:2;height:calc(var(--hs) - 100svh + var(--rd) + 1px);border-top:3px solid #0A0A0A;background:repeating-linear-gradient(90deg,#EDE4D1 0 28px,transparent 28px 56px) 14px calc(var(--rd)*.48 - 2px)/100% 4px repeat-x,var(--asp,#3B312C)}}
-/* Safari 26 puts a flat bar behind the status bar whenever a sticky/fixed box sits at the top, colored once at load (the night sky) and never updated.
-   Where scroll-driven animations exist, a scroll-linked transform holds the stage in place instead of sticky: to Safari it's ordinary content, so the status bar blurs the live sky.
-   !important so the reduced-motion reset can't unpin it; the range matches #world's height minus the stage. */
-@supports(animation-timeline:scroll()){.stage{position:relative;top:auto;animation:pin linear both!important;animation-timeline:scroll(root)!important;animation-range:0 calc(248vh - 100lvh)!important;border-bottom-color:var(--asp,#3B312C)}
-@keyframes pin{to{transform:translateY(calc(248vh - 100lvh))}}}
+.stage{--rd:calc(var(--sk)*.17)}.stage .sk{bottom:calc(var(--hs) - 100svh + var(--tp) + var(--rd))}
+.stage::after{content:"";position:absolute;inset:auto 0 0;z-index:2;height:calc(var(--hs) - 100svh + var(--tp) + var(--rd) + 1px);border-top:3px solid #0A0A0A;background:repeating-linear-gradient(90deg,#EDE4D1 0 28px,transparent 28px 56px) 14px calc(var(--rd)*.48 - 2px)/100% 4px repeat-x,var(--asp,#3B312C)}}
+/* sky-colored down to mid-screen, asphalt (#world) below: what the status bar and the toolbar show of #world; JS moves its edge with the scroll, out of sight behind the stage */
+.cap{position:absolute;left:0;right:0;top:0;height:100%;background:#1E1612;pointer-events:none;will-change:transform}
 .sky{position:absolute;inset:0;background:#1E1612}.sky i{position:absolute;inset:0;background:#1E1612}.sky .b{opacity:0;will-change:opacity}
 .sky::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(255,255,255,.22))}
 .orb{position:absolute;left:0;top:0;width:15vmin;height:15vmin;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);background:#F2B63D;will-change:transform,opacity}.moon{width:10vmin;height:10vmin;background:#EFEAD9}
@@ -150,7 +148,7 @@ header nav button:hover{opacity:1}
 .bar .pill{font-size:1rem;letter-spacing:0;text-transform:none;text-decoration:none;white-space:nowrap}
 .pan figcaption{padding-bottom:calc(7vh + 64px)}}
 </style>
-<noscript><style>#world{height:auto}.stage{position:static;height:auto;overflow:visible;animation:none!important}.ch{position:static;visibility:visible;padding:12vh 6vw 0}.f{opacity:1;transform:none}.orb{display:none}</style></noscript>
+<noscript><style>#world{height:auto}.stage{position:static;height:auto;overflow:visible}.cap{display:none}.ch{position:static;visibility:visible;padding:12vh 6vw 0}.f{opacity:1;transform:none}.orb{display:none}</style></noscript>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="lg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" style="fill:var(--lc)"/><g style="fill:var(--lg)"><path d="M50 16 62.8 28.7 50 41.5 37.2 28.7z"/><rect x="30.5" y="53.5" width="6.2" height="27" rx="3"/><rect x="46.9" y="53.5" width="6.2" height="27" rx="3"/><rect x="63.3" y="53.5" width="6.2" height="27" rx="3"/></g></symbol></svg>
@@ -182,7 +180,7 @@ header nav button:hover{opacity:1}
 </div>
 </div>
 
-</div></section>
+</div><i class="cap" aria-hidden="true"></i></section>
 
 <section class="body" id="family" aria-label="Our church family">
 <figure class="pan lead"><img src="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/ae32759d-be8d-4fc1-bd7b-b51a7e49bb7f/Our%2BValues%2BNew.jpg?format=1000w" srcset="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/ae32759d-be8d-4fc1-bd7b-b51a7e49bb7f/Our%2BValues%2BNew.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/ae32759d-be8d-4fc1-bd7b-b51a7e49bb7f/Our%2BValues%2BNew.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/ae32759d-be8d-4fc1-bd7b-b51a7e49bb7f/Our%2BValues%2BNew.jpg?format=2500w 2500w" sizes="100vw" alt="Church members worshiping together with hands raised" loading="lazy" decoding="async"><figcaption><h2 class="D" data-es="Somos el cuerpo">We are the body</h2><p class="ref" data-es="1 Corintios 12:27">1 Corinthians 12:27</p></figcaption></figure>
@@ -354,12 +352,13 @@ LG=[...st.querySelectorAll('.lg')].map(g=>[g,+g.dataset.t,-1]),DGs=[...st.queryS
 const S=[[0,[30,22,18]],[.34,[46,30,24]],[.54,[86,46,34]],[.66,[156,80,50]],[.77,[228,150,96]],[.89,[241,223,183]],[1,[243,237,224]]];
 const ss=(a,b,x)=>{x=Math.min(1,Math.max(0,(x-a)/(b-a)));return x*x*(3-2*x)};
 const TA=matchMedia('(prefers-reduced-motion:reduce),(pointer:coarse)').matches?0:.09;
-let RF=.81,P=0,Tg=0,run=0,cn=-1,dk=-1,hs=-1,last=-1,lt=0,H=1,Rg=1,Wt=0,Rt=0,vw=1,SK=1,MS=1,SS=1,dO=-1,Y0=1,asp='';
+let RF=.81,P=0,Tg=0,run=0,cn=-1,dk=-1,hs=-1,last=-1,lt=0,H=1,Rg=1,Wt=0,Rt=0,vw=1,SK=1,MS=1,SS=1,dO=-1,Y0=1,asp='',WH=1;
+const CAP=W.querySelector('.cap'),cap=()=>CAP.style.transform=`translateY(${Math.round(scrollY-Wt+H/2-WH)}px)`;
 function draw(p){
 let i=1;while(i<S.length-1&&p>S[i][0])i++;
 const [p0,c0]=S[i-1],[p1,c1]=S[i],u=(p-p0)/(p1-p0),night=1-ss(.64,.9,p);
 if(i!==last){SA.style.backgroundColor='rgb('+c0+')';SB.style.backgroundColor='rgb('+c1+')';last=i}
-SB.style.opacity=u.toFixed(3);st.style.borderTopColor='rgb('+c0.map((v,j)=>Math.round(v+(c1[j]-v)*u))+')';
+SB.style.opacity=u.toFixed(3);CAP.style.backgroundColor='rgb('+c0.map((v,j)=>Math.round(v+(c1[j]-v)*u))+')';
 N.style.opacity=night.toFixed(3);LIT.style.opacity=(1-ss(.72,.9,p)).toFixed(3);STARS.style.opacity=(1-ss(.48,.7,p)).toFixed(3);
 const roof=Y0-SK*RF,m=Math.min(1,p/.66);
 MO.style.opacity=(1-ss(.58,.66,p)).toFixed(3);
@@ -395,10 +394,10 @@ const SVG=[...st.querySelectorAll('svg.sk')];
 function measure(force){const h=st.offsetHeight,w=innerWidth;if(!force&&h===H&&w===vw)return;
 /* phones: crop the empty sky out of the viewBox so the skyline draws bigger and fewer buildings fit across */
 const mob=w<640;st.classList.toggle('mob',mob);SVG.forEach(e=>e.setAttribute('viewBox',mob?'0 100 1600 500':'0 0 1600 600'));RF=mob?.96:.81;
-H=h;vw=w;const sr=SKe.getBoundingClientRect();SK=sr.height;Y0=sr.bottom-st.getBoundingClientRect().top-st.clientTop;MS=MO.offsetWidth;SS=SU.offsetWidth;Rg=W.offsetHeight-st.clientTop-H;Wt=W.offsetTop;Rt=document.getElementById('family').offsetTop;fit();aim();draw(P)}
+H=h;vw=w;const sr=SKe.getBoundingClientRect();SK=sr.height;Y0=sr.bottom-st.getBoundingClientRect().top-st.clientTop;MS=MO.offsetWidth;SS=SU.offsetWidth;Rg=W.offsetHeight-H;WH=W.offsetHeight;Wt=W.offsetTop;Rt=document.getElementById('family').offsetTop;fit();aim();cap();draw(P)}
 /* header: solid bar over the content sections, tucks away on scroll down, returns on scroll up */
 let ly=scrollY;
-addEventListener('scroll',()=>{aim();const y=scrollY,inR=y+40>Rt;
+addEventListener('scroll',()=>{aim();cap();const y=scrollY,inR=y+40>Rt;
 if(!inR||y<ly-4)hd.classList.remove('hid');else if(y>ly+4&&!hd.contains(document.activeElement))hd.classList.add('hid');ly=y;bar();clearTimeout(stl);stl=setTimeout(settle,200)},{passive:true});
 /* if scrolling stops mid-handoff between the two titles, glide to whichever side is closer */
 let stl;const settle=()=>{const p=Tg;if(!matchMedia('(prefers-reduced-motion:reduce)').matches&&p>.4&&p<.6)scrollTo({top:Wt+Rg*(p<.5?.36:.64),behavior:'smooth'})};
