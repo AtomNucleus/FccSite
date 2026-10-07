@@ -9,16 +9,16 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Church","name":"Fordham Community Church","url":"https://www.fccbronx.org","description":"Sundays 9:45 am in Spanish and 11:45 am in English.","address":{"@type":"PostalAddress","streetAddress":"2439 Creston Avenue","addressLocality":"Bronx","addressRegion":"NY","postalCode":"10468"}}</script>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#F3EDE0;--ink:#0A0A0A;--rb:#F3EDE0;--rf:#0A0A0A;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{--paper:#F3EDE0;--ink:#0A0A0A;--rb:#F3EDE0;--rf:#0A0A0A;--accent:#D46B4E;--s1:1rem;--s2:2rem;--s3:4rem;--s4:8rem;--t-xl:clamp(2.8rem,7vw,6.5rem);--t-md:clamp(1.6rem,2.4vw,2.2rem);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--rb:#15120e;--rf:#F3EDE0}}
 :root[data-theme="dark"]{--rb:#15120e;--rf:#F3EDE0}
 html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 *,::before,::after{box-sizing:inherit}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 1.05rem/1.55 Archivo,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 clamp(1rem,.9rem + .3vw,1.2rem)/1.55 Archivo,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.06;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
 h1,h2,h3,p,ul{margin:0;padding:0}
 a{color:inherit}
-:focus-visible{outline:3px solid #F2B63D;outline-offset:3px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .D{font:400 1em/.9 Anton,Impact,"Arial Narrow",sans-serif;text-transform:uppercase}
 header{position:fixed;inset:0 0 auto;z-index:50;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;padding:calc(env(safe-area-inset-top,0px) + 16px) 5vw 12px;--fg:#0A0A0A;--bgc:#F3EDE0;color:var(--fg);transition:color .4s,background-color .3s,box-shadow .3s,transform .35s;pointer-events:none}
 header.dk{--fg:#F3EDE0;--bgc:#1E1612}
@@ -62,28 +62,47 @@ header nav a{text-decoration:none}
 .times b{display:block;font-size:calc(clamp(3.2rem,7.4vw,7rem)*var(--k,1))}
 .times span{display:block;font-weight:600}
 .btn{display:inline-block;margin-top:1.2rem;padding:.8em 1.5em;border-radius:99px;background:#0A0A0A;color:#F3EDE0;text-decoration:none;font-weight:600;transition:background .5s,color .5s}.dk .btn{background:#F3EDE0;color:#1E1612}
-.rest{position:relative;z-index:3;background:var(--rb);color:var(--rf);padding:14vh 6vw 10vh}
-.big{font-size:clamp(3.4rem,11vw,10.5rem)}
-.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:3rem 5vw;margin:6vh 0 9vh;max-width:1200px}
-.cols h3{font:600 1.15rem Archivo,sans-serif;margin-bottom:.8rem}
-.cols ul{list-style:none}
-.cols li{padding:.7rem 0;border-top:1px solid color-mix(in srgb,currentColor 25%,transparent)}
-.cols li a{font-weight:600;text-decoration:none}
-.cols li span{display:block;opacity:.7}
-.cols p+p{margin-top:.8rem}
-.ev{list-style:none;max-width:1200px}
-.ev li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.2rem 2rem;align-items:baseline;padding:1rem 0;border-top:2px solid currentColor;font:600 clamp(1.35rem,3.4vw,2.4rem)/1.2 Archivo,sans-serif}
+.rest{position:relative;z-index:3;background:var(--rb);color:var(--rf);padding:var(--s4) 6vw var(--s3)}
+.wrap{max-width:1200px;margin:0 auto}
+.big{font-size:var(--t-xl);text-wrap:balance}
+.lbl{font:400 var(--t-md)/1 Anton,Impact,"Arial Narrow",sans-serif;text-transform:uppercase;margin-bottom:var(--s1)}
+.visit{display:grid;gap:var(--s3) 5vw;margin:var(--s3) 0 var(--s4)}
+@media(min-width:900px){.visit{grid-template-columns:5fr 7fr}}
+.find p+p{margin-top:var(--s1)}
+.addr{font-weight:600;font-size:1.3em;line-height:1.3}
+.cards{list-style:none}
+.cards li{border-top:2px solid currentColor}
+.cards li:last-child{border-bottom:2px solid currentColor}
+.cards a{display:grid;grid-template-columns:1fr auto;align-items:center;gap:.25rem 1.5rem;padding:1.1rem .75rem;margin:0 -.75rem;text-decoration:none;transition:background-color .25s,color .25s}
+.cards b{font:400 clamp(1.6rem,2.6vw,2.3rem)/1 Anton,Impact,"Arial Narrow",sans-serif;text-transform:uppercase}
+.cards span{grid-column:1;opacity:.72}
+.cards a::after{content:"";grid-column:2;grid-row:1/span 2;width:14px;height:14px;background:var(--accent);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);transition:transform .25s}
+.cards a:hover{background:var(--rf);color:var(--rb)}
+.cards a:hover::after{transform:translateX(-4px) scale(1.3)}
+.ev{list-style:none}
+.ev li{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.6rem 2rem;padding:1rem 0;border-top:2px solid currentColor;font:600 clamp(1.1rem,1.6vw,1.35rem)/1.3 Archivo,sans-serif}
 .ev li:last-child{border-bottom:2px solid currentColor}
-.ev li span+span{font-weight:400;opacity:.75;font-variant-numeric:tabular-nums}
-.evq{margin-top:1.2rem;opacity:.8}
-footer{position:relative;z-index:3;background:#0A0A0A;color:#F3EDE0;padding:9vh 6vw calc(5vh + env(safe-area-inset-bottom,0px));display:grid;gap:2.2rem;border-top:1px solid #333}
+.ev .dt{display:flex;flex-wrap:wrap;gap:.4rem}
+.ev time{padding:.5em .85em;border-radius:99px;background:color-mix(in srgb,currentColor 9%,transparent);font:600 .8rem/1 Archivo,sans-serif;letter-spacing:.06em;text-transform:uppercase;font-variant-numeric:tabular-nums}
+.evq{margin-top:var(--s1);opacity:.8}
+footer{position:relative;z-index:3;background:#0A0A0A;color:#F3EDE0;padding:var(--s3) 6vw calc(var(--s2) + env(safe-area-inset-bottom,0px));border-top:1px solid #333}
+.fgrid{max-width:1200px;margin:0 auto;display:grid;gap:var(--s3) 5vw}
+@media(min-width:900px){.fgrid{grid-template-columns:5fr 7fr;align-items:start}}
+.fbrand{display:grid;gap:var(--s2);justify-items:start}
 footer .logo{--lc:#F3EDE0;--lg:#0A0A0A;width:64px}
-.tag{font-size:clamp(2.6rem,9vw,8.5rem)}
-.tag i{font-style:normal;color:#C8644A}
-footer nav{display:flex;flex-wrap:wrap;gap:.6rem 1.8rem;font-weight:600}
-footer small{opacity:.7}
+.tag{font-size:clamp(2.2rem,4.6vw,4.5rem);white-space:nowrap}
+.tag i{font-style:normal;color:var(--accent)}
+.fnav{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:var(--s2)}
+.fnav h3{margin-bottom:var(--s1);font:600 .8rem Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;opacity:.6}
+.fnav ul{list-style:none;display:grid;gap:.75rem}
+.fnav a{display:inline-flex;align-items:center;gap:.6rem;font-weight:600;text-decoration:none}
+.fnav a:hover{text-decoration:underline;text-underline-offset:.25em}
+.fnav svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.fbase{display:block;max-width:1200px;margin:var(--s3) auto 0;padding-top:var(--s2);border-top:1px solid #2a2a2a;font-size:.875rem;opacity:.7}
 .when{order:3;flex:0 0 100%;margin-top:.55rem;font:600 .72rem/1.2 Archivo,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none}
-header nav button{font:inherit;color:inherit;background:none;border:1.5px solid currentColor;border-radius:99px;padding:.25em .7em;cursor:pointer}
+header nav button{font:inherit;font-size:.85em;letter-spacing:.08em;color:inherit;background:none;border:0;padding:.3em .2em;cursor:pointer;opacity:.75;text-decoration:underline;text-underline-offset:.3em;text-decoration-thickness:1px}
+header nav button:hover{opacity:1}
+@media(min-width:1024px){header nav{font-size:1.08rem;gap:2rem}.when{font-size:.8rem}}
 .ch p,.es{text-shadow:0 0 .7em var(--ha,transparent)}.ch{--ha:#F3EDE0aa}.dk .ch{--ha:#1E1612aa}
 @media(pointer:coarse){body::after{display:none}}
 @media(max-width:560px){header nav a:not(.pill):not([href*=tithe]),.dm{display:none}}
@@ -97,18 +116,17 @@ header nav button{font:inherit;color:inherit;background:none;border:1.5px solid 
 .pan::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 38%,rgba(30,22,18,.9))}
 .pan figcaption{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:0 6vw 7vh;display:grid;gap:1rem}
 .pan h2{font-size:clamp(4.5rem,17vw,15rem);line-height:.85;text-wrap:balance}
-.pan.lead h2{font-size:clamp(3.4rem,11vw,10.5rem)}
+.pan.lead h2{font-size:var(--t-xl)}
 .pan p{max-width:36ch;font-size:clamp(1rem,1.6vw,1.3rem);text-wrap:pretty}
 .pan:nth-of-type(3) figcaption{justify-items:end;text-align:right}
-.ref{font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#E4A06A}
-.fam{padding:16vh 6vw 6vh;display:grid;gap:1rem}
-.fam h2{font-size:clamp(3.4rem,11vw,10.5rem);text-wrap:balance}
+.ref{font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)}
+.fam{padding:var(--s4) 6vw var(--s2);display:grid;gap:1rem}
+.fam h2{font-size:var(--t-xl);text-wrap:balance}
 .fam p{font-size:clamp(1rem,1.6vw,1.3rem)}
 .mos{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:clamp(170px,26vw,400px);gap:6px;padding:0 6px 6px}
 .mos .w{grid-column:span 2}
 @media(max-width:640px){.mos{grid-template-columns:repeat(2,1fr);grid-auto-rows:46vw}.mos figure:last-child{display:none}}
 @media(hover:hover){.mos img{transition:transform .6s}.mos figure:hover img{transform:scale(1.03)}}
-.kid img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;margin-bottom:.8rem;border-radius:4px}
 </style>
 <noscript><style>#world{height:auto}.stage{position:static;height:auto;overflow:visible}.ch{position:static;visibility:visible;padding:12vh 6vw 0}.f{opacity:1;transform:none}.orb{display:none}</style></noscript>
 </head>
@@ -152,38 +170,58 @@ header nav button{font:inherit;color:inherit;background:none;border:1.5px solid 
 <div class="mos"><figure class="w"><img src="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1647029045117-XKAPA69W832U50F8C8QB/FCC%2BPhotos-27.jpg?format=1000w" srcset="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1647029045117-XKAPA69W832U50F8C8QB/FCC%2BPhotos-27.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1647029045117-XKAPA69W832U50F8C8QB/FCC%2BPhotos-27.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1647029045117-XKAPA69W832U50F8C8QB/FCC%2BPhotos-27.jpg?format=2500w 2500w" sizes="(max-width:640px) 100vw, 66vw" alt="The worship band singing" loading="lazy" decoding="async"></figure><figure><img src="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/68e8e5b4-9462-4d1d-b88e-d192b9f54934/FCC%2BPhotos-17.jpg?format=1000w" srcset="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/68e8e5b4-9462-4d1d-b88e-d192b9f54934/FCC%2BPhotos-17.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/68e8e5b4-9462-4d1d-b88e-d192b9f54934/FCC%2BPhotos-17.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/68e8e5b4-9462-4d1d-b88e-d192b9f54934/FCC%2BPhotos-17.jpg?format=2500w 2500w" sizes="(max-width:640px) 50vw, 33vw" alt="Two singers leading worship" loading="lazy" decoding="async"></figure><figure><img src="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/beb1a2f2-e0e6-441e-bb66-1c63d3aeee77/Is%2BOur%2BChurch%2Bfor%2BYou.jpg?format=1000w" srcset="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/beb1a2f2-e0e6-441e-bb66-1c63d3aeee77/Is%2BOur%2BChurch%2Bfor%2BYou.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/beb1a2f2-e0e6-441e-bb66-1c63d3aeee77/Is%2BOur%2BChurch%2Bfor%2BYou.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/beb1a2f2-e0e6-441e-bb66-1c63d3aeee77/Is%2BOur%2BChurch%2Bfor%2BYou.jpg?format=2500w 2500w" sizes="(max-width:640px) 50vw, 33vw" alt="Two men talking over coffee" loading="lazy" decoding="async"></figure><figure class="w"><img src="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1776219125014-XS1VYMH47UYOCCVI9P8W/image-asset.jpeg?format=1000w" srcset="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1776219125014-XS1VYMH47UYOCCVI9P8W/image-asset.jpeg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1776219125014-XS1VYMH47UYOCCVI9P8W/image-asset.jpeg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1776219125014-XS1VYMH47UYOCCVI9P8W/image-asset.jpeg?format=2500w 2500w" sizes="(max-width:640px) 100vw, 66vw" alt="The congregation listening to a sermon" loading="lazy" decoding="async"></figure><figure><img src="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1775860353947-N5UVFVCOWNOY5FI682II/image-asset.jpeg?format=1000w" srcset="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1775860353947-N5UVFVCOWNOY5FI682II/image-asset.jpeg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1775860353947-N5UVFVCOWNOY5FI682II/image-asset.jpeg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1775860353947-N5UVFVCOWNOY5FI682II/image-asset.jpeg?format=2500w 2500w" sizes="(max-width:640px) 50vw, 33vw" alt="A sermon in the sanctuary" loading="lazy" decoding="async"></figure><figure><img src="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1605024130186-8BKHYLV9F8QXRTD570D2/IMG_2385.jpg?format=1000w" srcset="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1605024130186-8BKHYLV9F8QXRTD570D2/IMG_2385.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1605024130186-8BKHYLV9F8QXRTD570D2/IMG_2385.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1605024130186-8BKHYLV9F8QXRTD570D2/IMG_2385.jpg?format=2500w 2500w" sizes="(max-width:640px) 50vw, 33vw" alt="A church member in an FCC T-shirt" loading="lazy" decoding="async"></figure><figure><img src="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1777779544633-E6FS05K8I8MA7SZ9S0EA/image-asset.jpeg?format=1000w" srcset="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1777779544633-E6FS05K8I8MA7SZ9S0EA/image-asset.jpeg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1777779544633-E6FS05K8I8MA7SZ9S0EA/image-asset.jpeg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1777779544633-E6FS05K8I8MA7SZ9S0EA/image-asset.jpeg?format=2500w 2500w" sizes="(max-width:640px) 50vw, 33vw" alt="An elder teaching with a microphone" loading="lazy" decoding="async"></figure></div>
 </section>
 
-<section class="rest" id="visit">
+<section class="rest" id="visit"><div class="wrap">
 <h2 class="D big" data-es="¿Es esta iglesia para ti? Sí.">Is our church for you? Yes.</h2>
-<div class="cols">
-<div>
-<h3 data-es="Encuéntranos">Find us</h3>
+<div class="visit">
+<div class="find">
+<h3 class="lbl" data-es="Encuéntranos">Find us</h3>
+<p class="addr">2439 Creston Avenue<br>Bronx, NY 10468</p>
 <p data-es="Estamos en el corazón de Fordham, en la esquina de Creston Avenue y East 188th Street. Domingos a las 9:45 am en español y a las 11:45 am en inglés.">We're in the heart of Fordham, at the corner of Creston Avenue and East 188th Street. Sundays at 9:45 am in Spanish and 11:45 am in English.</p>
 <p data-es="Toma el tren 4, B o D hasta Fordham Road, o los buses BX1, BX2 o BX12.">Take the 4, B or D to Fordham Road, or catch the BX1, BX2 or BX12 bus.</p>
-<p><a href="https://www.google.com/maps/search/?api=1&query=2439+Creston+Avenue+Bronx+NY+10468" data-es="Abrir en Mapas">Open in Maps</a></p>
+<a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=2439+Creston+Avenue+Bronx+NY+10468" data-es="Cómo llegar">Get directions</a>
 </div>
 <div>
-<h3 data-es="Conéctate">Connect</h3>
-<ul>
-<li><a href="https://www.fccbronx.org/city-link-groups">City Link Groups</a><span data-es="Reuniones entre semana para leer las Escrituras, orar y amar a nuestros vecinos.">Midweek gatherings to read Scripture, pray and love our neighbors.</span></li>
-<li class="kid"><img src="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1630004320550-7RUI4PMHZLM5F16NXX4N/IMG_4141.jpg?format=1000w" srcset="https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1630004320550-7RUI4PMHZLM5F16NXX4N/IMG_4141.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1630004320550-7RUI4PMHZLM5F16NXX4N/IMG_4141.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/5ab3bdf555b02c3e0c6273f1/1630004320550-7RUI4PMHZLM5F16NXX4N/IMG_4141.jpg?format=2500w 2500w" sizes="(max-width:640px) 100vw, 40vw" alt="The FCC Kids check-in corner" loading="lazy" decoding="async"><a href="https://www.fccbronx.org/fcc-kids">FCC Kids</a><span data-es="Desde la guardería hasta la primaria.">Nursery through elementary.</span></li>
-<li><a href="https://www.fccbronx.org/serve" data-es="Servir">Serve</a><span data-es="Amar a Fordham y al sur del Bronx con hechos.">Love Fordham and the South Bronx in practice.</span></li>
-<li><a href="https://www.fccbronx.org/sermon" data-es="Sermones">Sermons</a><span data-es="Ponte al día con la Palabra.">Catch up on the Word.</span></li>
-<li><a href="https://tithe.ly/give?c=477320" data-es="Dar">Give</a><span data-es="Da en línea.">Give online.</span></li>
+<h3 class="lbl" data-es="Conéctate">Connect</h3>
+<ul class="cards">
+<li><a href="https://www.fccbronx.org/city-link-groups"><b>City Link Groups</b><span data-es="Reuniones entre semana para leer las Escrituras, orar y amar a nuestros vecinos.">Midweek gatherings to read Scripture, pray and love our neighbors.</span></a></li>
+<li><a href="https://www.fccbronx.org/fcc-kids"><b>FCC Kids</b><span data-es="Desde la guardería hasta la primaria.">Nursery through elementary.</span></a></li>
+<li><a href="https://www.fccbronx.org/serve"><b data-es="Servir">Serve</b><span data-es="Amar a Fordham y al sur del Bronx con hechos.">Love Fordham and the South Bronx in practice.</span></a></li>
+<li><a href="https://www.fccbronx.org/sermon"><b data-es="Sermones">Sermons</b><span data-es="Ponte al día con la Palabra.">Catch up on the Word.</span></a></li>
+<li><a href="https://tithe.ly/give?c=477320"><b data-es="Dar">Give</b><span data-es="Da en línea.">Give online.</span></a></li>
 </ul>
 </div>
 </div>
-<h3 id="evh" data-es="Próximamente" style="font:600 1.15rem Archivo,sans-serif;margin-bottom:1rem">Coming up</h3>
+<h3 class="lbl" id="evh" data-es="Próximamente">Coming up</h3>
 <ul class="ev" id="ev"></ul>
 <p class="evq" id="evq" data-es="¿Preguntas sobre alguno? &lt;a href=&quot;https://www.fccbronx.org/contact&quot;&gt;Escríbenos&lt;/a&gt;">Questions about any of these? <a href="https://www.fccbronx.org/contact">Get in touch</a></p>
-</section>
+</div></section>
 
 <footer>
+<div class="fgrid">
+<div class="fbrand">
 <svg class="logo" role="img" aria-label="Fordham Community Church"><use href="#lg"/></svg>
 <p class="D tag" data-es="Conocer <i>/</i> Vivir <i>/</i> Amar">Know <i>/</i> Live <i>/</i> Love</p>
-<nav>
-<a href="https://www.fccbronx.org/about-us" data-es="Nosotros">About</a><a href="https://www.fccbronx.org/what-we-believe" data-es="Lo que creemos">What we believe</a><a href="https://www.fccbronx.org/team" data-es="Equipo">Team</a><a href="https://www.fccbronx.org/fcc-building-campaign" data-es="Campaña de construcción">Building campaign</a><a href="https://www.fccbronx.org/contact" data-es="Contacto">Contact</a><a href="https://www.instagram.com/fcc_bronx/">Instagram</a><a href="https://www.youtube.com/channel/UCt1xhWX4lXxAm6qKemmmhKw">YouTube</a><a href="https://www.facebook.com/Fccbronx2018/">Facebook</a><a href="https://tithe.ly/give?c=477320" data-es="Dar">Give</a>
+</div>
+<nav class="fnav" aria-label="Footer">
+<div><h3 data-es="Iglesia">Church</h3><ul>
+<li><a href="https://www.fccbronx.org/about-us" data-es="Nosotros">About</a></li>
+<li><a href="https://www.fccbronx.org/what-we-believe" data-es="Lo que creemos">What we believe</a></li>
+<li><a href="https://www.fccbronx.org/team" data-es="Equipo">Team</a></li>
+<li><a href="https://www.fccbronx.org/fcc-building-campaign" data-es="Campaña de construcción">Building campaign</a></li>
+</ul></div>
+<div><h3 data-es="Conéctate">Connect</h3><ul>
+<li><a href="https://www.fccbronx.org/contact" data-es="Contacto">Contact</a></li>
+<li><a href="https://www.fccbronx.org/sermon" data-es="Sermones">Sermons</a></li>
+<li><a href="https://tithe.ly/give?c=477320" data-es="Dar">Give</a></li>
+</ul></div>
+<div><h3 data-es="Síguenos">Follow</h3><ul>
+<li><a href="https://www.instagram.com/fcc_bronx/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>Instagram</a></li>
+<li><a href="https://www.youtube.com/channel/UCt1xhWX4lXxAm6qKemmmhKw"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9.2l4.8 2.8-4.8 2.8z" fill="currentColor"/></svg>YouTube</a></li>
+<li><a href="https://www.facebook.com/Fccbronx2018/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 2h-3a5 5 0 0 0-5 5v3H6v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a></li>
+</ul></div>
 </nav>
-<small data-es="Fordham Community Church, 2439 Creston Avenue, Bronx, NY 10468. Siete años en el Bronx, 2019 a 2026.">Fordham Community Church, 2439 Creston Avenue, Bronx, NY 10468. Seven years in the Bronx, 2019 to 2026.</small>
+</div>
+<small class="fbase" data-es="Fordham Community Church, 2439 Creston Avenue, Bronx, NY 10468. Siete años en el Bronx, 2019 a 2026.">Fordham Community Church, 2439 Creston Avenue, Bronx, NY 10468. Seven years in the Bronx, 2019 to 2026.</small>
 </footer>
 
 <script>
@@ -335,14 +373,14 @@ I.forEach(e=>e.dataset.en=e.hasAttribute('data-sp')?e.textContent.trim():e.inner
 function lang(l,first){R.lang=l;LB.textContent=l=='es'?'EN':'ES';
 I.forEach(e=>{const t=e.dataset[l];e.hasAttribute('data-sp')?sp(e,t):e.innerHTML=t});ext_();
 const rows=EV.map(([n,s,d])=>[l=='es'?s:n,d.filter(x=>dd(x)>=t0)]).filter(r=>r[1].length).sort((a,b)=>a[1][0]<b[1][0]?-1:1),f=new Intl.DateTimeFormat(l,{month:'short',day:'numeric'});
-EL.innerHTML=rows.map(([n,d])=>`<li><span>${n}</span><span>${d.map(x=>f.format(dd(x))).join(', ')}</span></li>`).join('');
+EL.innerHTML=rows.map(([n,d])=>`<li><span>${n}</span><span class="dt">${d.map(x=>`<time datetime="${x}">${f.format(dd(x))}</time>`).join('')}</span></li>`).join('');
 EL.hidden=EH.hidden=EQ.hidden=!rows.length;try{localStorage.setItem('l',l)}catch(_){}
 if(!first)measure(1)}
 let l0;try{l0=localStorage.getItem('l')}catch(_){}
 lang(l0||((navigator.language||'').slice(0,2)=='es'?'es':'en'),1);
 LB.onclick=()=>lang(R.lang=='es'?'en':'es');
 document.querySelectorAll('a[href="#visit"]').forEach(a=>a.onclick=e=>{e.preventDefault();scrollTo({top:rest.offsetTop,behavior:'instant'})});
-document.querySelectorAll('.body img,.kid img').forEach(i=>{const f=()=>(i.closest('figure')||i).remove();if(i.complete&&!i.naturalWidth)f();else i.addEventListener('error',f)});
+document.querySelectorAll('.body img').forEach(i=>{const f=()=>(i.closest('figure')||i).remove();if(i.complete&&!i.naturalWidth)f();else i.addEventListener('error',f)});
 measure(1);P=Tg;draw(P);
 })();
 </script>
